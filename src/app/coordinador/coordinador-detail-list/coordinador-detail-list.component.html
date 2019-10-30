@@ -1,0 +1,26 @@
+<div class="container-fluid">
+	<div class="col-md-2">
+		<table class="table table-striped">
+			<thead class="thead-light">
+				<tr>
+					<th> Coordinador Detail</th>
+					<th scope="col">Nombre de usuario</th>
+					<th scope="col">Clave</th>
+          <th scope="col">Tecnicos</th>
+					<th scope="col">Incidentes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let coordinador of coordinadores">
+					<td>{{coordinador.name}}</td>
+					<td>{{coordinador.username}}</td>
+					<td>{{coordinador.password}}</td>
+					<td>{{coordinador.tecnicos}}</td>
+					<td>{{coordinador.incidentes}}</td>
+
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</div>
