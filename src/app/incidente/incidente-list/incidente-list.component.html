@@ -1,0 +1,46 @@
+<div class="container-fluid">
+	<div class="col-md-2">
+		<table class="table table-striped">
+			<thead class="thead-light">
+				<tr>
+					<th> Incidente </th>
+                         <th scope="col">fechaHoraInicial</th>
+                         <th scope="col">fechaHoraFinal</th>
+                         <th scope="col">descripcion</th>
+                         <th scope="col">observaciones</th>
+                         <th scope="col">calificacion</th>
+                         <th scope="col">categoria</th>
+                         <th scope="col">prioridad</th>
+                         <th scope="col">solucionado</th>
+                         <th scope="col">reabrir</th>
+                         <th scope="col">equipo</th>
+                         <th scope="col">tecnico</th>
+                         <th scope="col">empleado</th>
+                         <th scope="col">coordinador</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let incidente of incidentes">
+                    <td>{{incidente.id}}</td>
+                    <td>{{incidente.fechaHoraInicial}}</td>
+                    <td>{{incidente.fechaHoraFinal}}</td>
+                    <td>{{incidente.descripcion}}</td>
+                    <td>{{incidente.observaciones}}</td>
+                    <td>{{incidente.calificacion}}</td>
+                    <td>{{incidente.categoria}}</td>
+                    <td>{{incidente.prioridad}}</td>
+                    <td>{{incidente.solucionado}}</td>
+                    <td>{{incidente.reabrir}}</td>
+                    <td>{{incidente.equipo}}</td>
+                    <td>{{incidente.tecnico}}</td>
+                    <td>{{incidente.empleado}}</td>
+                    <td>{{incidente.coordinador}}</td>
+					
+
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</div>
