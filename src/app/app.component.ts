@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { CoordinadorService } from './coordinador/coordinador.service';
 
 /**
  * The app component. This component is the base of s1_incidentes-Front
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
        /**
      * @ignore
      */
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService, private coordinadorService: CoordinadorService, ) { }
 
     logout(): void {
         this.authService.logout()
