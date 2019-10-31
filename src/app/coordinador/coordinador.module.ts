@@ -6,6 +6,8 @@ import { CoordinadorDetailListComponent } from './coordinador-detail-list/coordi
 
 @NgModule({
   imports: [
+
+  
     CommonModule
   ],
   declarations: [CoordinadorListComponent, CoordinadorDetailListComponent,

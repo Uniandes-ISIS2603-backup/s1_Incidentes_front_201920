@@ -14,6 +14,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import { CoordinadorModule } from './coordinador/coordinador.module';
+import { IncidenteModule } from './incidente/incidente.module';
 
 
 
@@ -26,6 +27,7 @@ import { CoordinadorModule } from './coordinador/coordinador.module';
     ],
     imports: [
         CoordinadorModule,
+        IncidenteModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
