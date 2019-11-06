@@ -1,4 +1,4 @@
-export interface Tecnico {
+export class Tecnico {
   name: string;
   username: string;
   password:string;

@@ -1,2 +1,2 @@
-export interface Incidente {
+export class Incidente {
 }
