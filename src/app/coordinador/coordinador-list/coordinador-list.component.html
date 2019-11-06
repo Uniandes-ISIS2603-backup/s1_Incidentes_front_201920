@@ -1,22 +1,8 @@
-<div class="container-fluid">
-	<div class="col-md-2">
-		<table class="table table-striped">
-			<thead class="thead-light">
-				<tr>
-					<th> Coordinador </th>
-					<th scope="col">Nombre de usuario</th>
-					<th scope="col">Clave</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let coordinador of coordinadores">
-					<td>{{coordinador.name}}</td>
-					<td>{{coordinador.username}}</td>
-					<td>{{coordinador.password}}</td>
-
-				</tr>
-
-			</tbody>
-		</table>
+<div *ngFor="let c of coordinadores" class="card" style="width: 18rem;">
+	<img src="https://www.dccomics.com/sites/default/files/styles/character_thumb_160x160/public/Char_Profile_Superman_20190116_5c3fc2758f6a12.25513240.jpg?itok=v4JG6s6J"
+		class="card-img-top" alt="...">
+	<div class="card-body">
+		<h5 class="card-title">{{c.name}}</h5>
+		<a href="/coordinador/{{c.id}}" class="btn btn-primary">Ver perfil</a>
 	</div>
 </div>
