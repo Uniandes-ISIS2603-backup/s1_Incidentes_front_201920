@@ -7,12 +7,17 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
 import { CoordinadorListComponent } from '../coordinador/coordinador-list/coordinador-list.component';
+import { IncidenteListComponent } from '../incidente/incidente-list/incidente-list.component';
 
 const routes: Routes = [
 
     {
         path: 'coordinador',
         component: CoordinadorListComponent,
+    },
+    {
+        path: 'incidente',
+        component: IncidenteListComponent,
     },
     {
         path: 'auth',
