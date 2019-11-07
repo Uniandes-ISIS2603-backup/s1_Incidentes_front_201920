@@ -8,6 +8,7 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 
 import { CoordinadorListComponent } from '../coordinador/coordinador-list/coordinador-list.component';
 import { IncidenteListComponent } from '../incidente/incidente-list/incidente-list.component';
+import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,10 @@ const routes: Routes = [
     {
         path: 'incidente',
         component: IncidenteListComponent,
+    },
+    {
+        path: 'empleado',
+        component: EmpleadoListComponent,
     },
     {
         path: 'auth',
