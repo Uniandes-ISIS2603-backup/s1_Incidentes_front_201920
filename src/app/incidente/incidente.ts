@@ -10,7 +10,7 @@ export class Incidente {
     solucionado: string;
     reabrir: string;
     equipo: string;
-    actuaciones: string;
+
     tecnico: string;
     empleado: string;
     coordinador: string;

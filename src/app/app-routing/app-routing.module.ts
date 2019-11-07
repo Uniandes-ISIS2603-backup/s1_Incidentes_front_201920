@@ -9,6 +9,7 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { CoordinadorListComponent } from '../coordinador/coordinador-list/coordinador-list.component';
 import { CoordinadorDetailListComponent } from '../coordinador/coordinador-detail-list/coordinador-detail-list.component';
 import { IncidenteListComponent } from '../incidente/incidente-list/incidente-list.component';
+import { IncidenteDetailListComponent } from '../incidente/incidente-detail-list/incidente-detail-list.component';
 
 const routes: Routes = [
 
@@ -37,6 +38,21 @@ const routes: Routes = [
     },
     {
         path: 'incidente',
+        children: [
+            {
+                path: ":id",
+                component: IncidenteDetailListComponent,
+                children: [
+                    {
+                        path: "actuaciones",
+                        component: IncidenteDetailListComponent
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        path: 'incidentes',
         component: IncidenteListComponent,
     },
     {
