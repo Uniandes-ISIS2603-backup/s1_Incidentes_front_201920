@@ -18,15 +18,12 @@ import { IncidenteModule } from './incidente/incidente.module';
 import { EmpleadoModule } from './empleado/empleado.module';
 
 import { ReactiveFormsModule } from "@angular/forms";
-import { CoordinadorClientService } from './coordinador-client.service';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 @NgModule({
     declarations: [
         AppComponent
     ],
     imports: [
-        HttpClientInMemoryWebApiModule.forRoot(CoordinadorClientService, { delay: 100 }),
         ReactiveFormsModule,
         CoordinadorModule,
         IncidenteModule,
@@ -54,7 +51,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
             useClass: HttpErrorInterceptor,
             multi: true
         },
-        CoordinadorClientService
     ]
 })
 export class AppModule { }
