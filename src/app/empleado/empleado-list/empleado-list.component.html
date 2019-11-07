@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>Empleado</th>
+                    <th scope="col">Id</th>    
+                    <th scope="col">Nombre de usuario</th>
+                    <th scope="col">Clave</th>
+                    <th scope="col">Numero de incidentes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let e of empleados">
+                    <td><!-- <a class="figure-caption" [routerLink]="['/empleados', { outlets: { 'detail': [e.id] } }]">{{e.name}}</a> -->
+                        {{e.name}}
+                    </td>
+                    <td>{{e.id}}</td>
+                    <td>{{e.username}}</td>
+                    <td>{{e.password}}</td>
+					<td>{{e.numIncidentes}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
