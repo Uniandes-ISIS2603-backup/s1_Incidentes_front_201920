@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Coordinador } from "./coordinador";
 import { CoordinadorDetail } from "./coordinador-detail";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 
-import { catchError, map, tap } from "rxjs/operators";
+import { tap } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 
 
@@ -25,7 +25,7 @@ export class CoordinadorService {
   getDetail(coordinadorId): Observable<CoordinadorDetail> {
     //const url = `${this.coordinadorUrl}/${coordinadorId}`;
     //return this.http.get<CoordinadorDetail>(url);
-    return this.http.get<CoordinadorDetail>(API_URL + "coordinador" + coordinadorId + ".json");
+    return this.http.get<CoordinadorDetail>(API_URL + "/coordinador/" + coordinadorId );
   }
 
   /** POST: add a new client to the server */
