@@ -1,0 +1,45 @@
+
+/**
+<div class="container-fluid">
+  <h1>Información del usuario</h1>
+  <p class="h4 p-3">
+		Dietas:
+	</p>
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>id</th>
+					<th>Nombre dieta</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let dieta of administradorDetail.dietas">
+					<th>{{dieta.id}}</th>
+					<td>{{dieta.nombre}}</td>
+				</tr>
+			</tbody>
+		</table>
+  <br>
+    <p class="h4 p-3">
+		Comidas:
+	</p>
+    <table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>id</th>
+					<th>Nombre comida</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let comida of administradorDetail.comidas">
+					<th>{{comida.id}}</th>
+					<td>{{comida.nombre}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+</div>
+**/
+
+
