@@ -8,7 +8,10 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 
 import { CoordinadorListComponent } from '../coordinador/coordinador-list/coordinador-list.component';
 import { CoordinadorDetailListComponent } from '../coordinador/coordinador-detail-list/coordinador-detail-list.component';
+import { CoordinadorCreateComponent } from '../coordinador/coordinador-create/coordinador-create.component';
 import { IncidenteListComponent } from '../incidente/incidente-list/incidente-list.component';
+import { CoordinadorTecnicosComponent } from '../coordinador/coordinador-tecnicos/coordinador-tecnicos.component';
+import { CoordinadorIncidentesComponent } from '../coordinador/coordinador-incidentes/coordinador-incidentes.component';
 
 const routes: Routes = [
 
@@ -21,11 +24,11 @@ const routes: Routes = [
                 children: [
                     {
                         path: "tecnicos",
-                        component: CoordinadorDetailListComponent
+                        component: CoordinadorTecnicosComponent
                     },
                     {
                         path: "incidentes",
-                        component: IncidenteListComponent
+                        component: CoordinadorIncidentesComponent
                     }
                 ]
             }
@@ -34,6 +37,12 @@ const routes: Routes = [
     {
         path: 'coordinadores',
         component: CoordinadorListComponent,
+        children: [
+            {
+                path: "create",
+                component: CoordinadorCreateComponent
+            }
+        ]
     },
     {
         path: 'incidente',
