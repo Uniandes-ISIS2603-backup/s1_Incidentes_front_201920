@@ -1,3 +1,31 @@
-<p>
-  coordinador-incidentes works!
-</p>
+<div class="container-fluid">
+    <div class="col-md-2">
+      <table class="table table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th> Incidente </th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Categoria</th>            
+            <th scope="col">Prioridad</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Reabierto</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let i of coordinadorDetail.incidentes">
+              <td>{{i.id}}</td>
+              <td>{{i.descripcion}}</td>
+              <td>{{i.categoria}}</td>
+              <td>{{i.prioridad}}</td>
+              <td>{{i.equipo}}</td>
+              <td>{{i.reabrir}}</td>
+              
+    
+            </tr>
+    
+          </tbody>
+        
+      </table>
+    </div>
+  </div>

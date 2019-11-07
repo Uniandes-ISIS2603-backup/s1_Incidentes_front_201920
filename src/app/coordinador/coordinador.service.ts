@@ -6,10 +6,10 @@ import { Observable, of } from "rxjs";
 
 import { catchError, map, tap } from "rxjs/operators";
 
-const API_URL = "../../assets/";
+const API_URL = "localhost:8080/s1_incidentes-api/api/";
 
 
-const coordinadores = "coordinadores.json";
+const coordinadores = "coordinador";
 
 @Injectable({ providedIn: "root" })
 export class CoordinadorService {

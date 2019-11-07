@@ -21,7 +21,7 @@ export class CoordinadorIncidentesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get("id");
+    this.id = +this.route.snapshot.parent.params.id;
     this.coordinadorDetail = new CoordinadorDetail;
     this.getCoordinadoreDetail();
   }
