@@ -38,20 +38,5 @@ export class CoordinadorTecnicosComponent implements OnInit {
   getCoordinadoreDetail(): void {
     this.coordinadorService.getDetail(this.id).subscribe(c => this.coordinadorDetail = c);
   }
-
-  filtrarPorEspecialidad(text: string) {
-    console.log(filtroEspecialidad);
-    this.clearTable();
-    let tecnicosFiltered: Tecnico[] = this.searchTecnicoByEspecialidad(text, this.coordinadorDetail.tecnicos);
-  }
-
-  searchTecnicoByEspecialidad(nameKey: string, tecnicos: Tecnico[]) {
-    return nameKey === ""
-      ? this.coordinadorDetail.tecnicos
-      : tecnicos.filter(t => t.especialidad.includes(nameKey));
-  }
-
-  clearTable() {
-  }
 }
 
