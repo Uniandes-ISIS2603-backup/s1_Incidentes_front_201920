@@ -20,7 +20,7 @@ export class Empleado {
   /**
   * Nombre del empleado
   */
-  name: string;
+  nombre: string;
  
   /**
   * Numero de incidentes del empleado
