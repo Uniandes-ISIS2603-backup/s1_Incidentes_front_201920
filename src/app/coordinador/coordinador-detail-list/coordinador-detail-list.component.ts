@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Coordinador } from "../coordinador";
 import { CoordinadorDetail } from "../coordinador-detail";
 import { CoordinadorService } from "../coordinador.service";
 

@@ -1,5 +1,7 @@
 export class Tecnico {
-  name: string;
+  id:number;
   username: string;
   password:string;
+  incidentesAsignados:number;
+  especialidad:string;
 }

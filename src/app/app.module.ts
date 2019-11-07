@@ -1,31 +1,32 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ToastrModule} from 'ngx-toastr';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
-import {NgxPermissionsModule} from 'ngx-permissions';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 
-import {AppComponent} from './app.component';
-import {AppRoutingModule} from './app-routing/app-routing.module';
-import {AuthModule} from './auth/auth.module';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AuthModule } from './auth/auth.module';
 import { CoordinadorModule } from './coordinador/coordinador.module';
 import { IncidenteModule } from './incidente/incidente.module';
 
-
-
-
-
+import { ReactiveFormsModule } from "@angular/forms";
+import { CoordinadorClientService } from './coordinador-client.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 @NgModule({
     declarations: [
         AppComponent
     ],
     imports: [
+        HttpClientInMemoryWebApiModule.forRoot(CoordinadorClientService, { delay: 100 }),
+        ReactiveFormsModule,
         CoordinadorModule,
         IncidenteModule,
         BrowserModule,
@@ -50,7 +51,8 @@ import { IncidenteModule } from './incidente/incidente.module';
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptor,
             multi: true
-        }
+        },
+        CoordinadorClientService
     ]
 })
-export class AppModule {}
+export class AppModule { }

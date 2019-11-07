@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+      <table class="table table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th> Tecnico </th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Casos Asignados</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let t of coordinadorDetail.tecnicos">
+              <td>{{t.username}}</td>
+              <td>{{t.especialidad}}</td>
+              <td>{{t.incidentesAsignados}}</td>
+    
+            </tr>
+    
+          </tbody>
+        
+      </table>
+    </div>
+  </div>
