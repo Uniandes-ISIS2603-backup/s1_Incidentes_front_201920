@@ -43,5 +43,4 @@ export class ActuacionService {
   updateActuacion (actuacion: Actuacion):Observable<any> {
     return this.http.put(this.actuacionUrl, actuacion, this.httpOptions);
   }
-
 }
