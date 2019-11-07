@@ -16,6 +16,7 @@ import { AuthModule } from './auth/auth.module';
 import { CoordinadorModule } from './coordinador/coordinador.module';
 import { IncidenteModule } from './incidente/incidente.module';
 import { EmpleadoModule } from './empleado/empleado.module';
+import { ActuacionModule } from './actuacion/actuacion.module';
 
 import { ReactiveFormsModule } from "@angular/forms";
 import { CoordinadorClientService } from './coordinador-client.service';
@@ -31,6 +32,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
         CoordinadorModule,
         IncidenteModule,
         EmpleadoModule,
+        ActuacionModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
