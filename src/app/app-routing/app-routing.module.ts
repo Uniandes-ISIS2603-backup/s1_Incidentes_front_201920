@@ -12,6 +12,7 @@ import { CoordinadorCreateComponent } from '../coordinador/coordinador-create/co
 import { IncidenteListComponent } from '../incidente/incidente-list/incidente-list.component';
 import { CoordinadorTecnicosComponent } from '../coordinador/coordinador-tecnicos/coordinador-tecnicos.component';
 import { CoordinadorIncidentesComponent } from '../coordinador/coordinador-incidentes/coordinador-incidentes.component';
+import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
 
 const routes: Routes = [
 
@@ -47,6 +48,10 @@ const routes: Routes = [
     {
         path: 'incidente',
         component: IncidenteListComponent,
+    },
+    {
+        path: 'empleado',
+        component: EmpleadoListComponent,
     },
     {
         path: 'auth',
