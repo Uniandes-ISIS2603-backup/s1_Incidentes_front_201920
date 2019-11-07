@@ -1,0 +1,27 @@
+[{
+  "id": 1,
+  "username":"amada",
+  "password":"elmemintio",
+  "name": "Amanda Miguel",
+  "numIncidentes":0
+}, {
+  "id": 2,
+  "username":"juan",
+  "password":"yononaciparaamar",
+  "name": "Juan Gabriel",
+  "numIncidentes":0
+},
+{
+  "id": 3,
+  "username":"jose",
+  "password":"eltriste",
+  "name": "Jose Jose",
+  "numIncidentes":0
+},
+{
+  "id": 4,
+  "username":"camilo",
+  "password":"quieressermiamante",
+  "name": "Camilo Sesto",
+  "numIncidentes":0
+}]
