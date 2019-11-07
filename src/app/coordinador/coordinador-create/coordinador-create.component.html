@@ -1,12 +1,12 @@
 <form [formGroup]="coordinadorForm" (ngSubmit)="createCoordinador(coordinadorForm.value)">
 
   <div class="form-group mx-sm-3 mb-2">
-    <label for="name">
+    <label for="nombre">
       Name
     </label>
-    <input novalidate id="name" class="form-control" formControlName="name" placeholder="Your Full Name">
-    <div class="alert alert-danger alert-dismissible fade show" *ngIf="coordinadorForm.get('name').hasError('required') && 
-        coordinadorForm.get('name').touched">
+    <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Your Full Name">
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="coordinadorForm.get('nombre').hasError('required') && 
+        coordinadorForm.get('nombre').touched">
       Name required
     </div>
   </div>

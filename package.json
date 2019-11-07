@@ -41,7 +41,7 @@
         "ngx-cookie-service": "^1.0.10",
         "ngx-modal-dialog": "^3.0.0",
         "ngx-pagination": "^3.2.0",
-        "ngx-permissions": "^6.0.2",
+        "ngx-permissions": "^6.0.6",
         "ngx-toastr": "^9.0.2",
         "octicons": "^7.1.0",
         "popper.js": "^1.14.4",

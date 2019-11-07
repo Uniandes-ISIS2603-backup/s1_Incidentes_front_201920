@@ -5,7 +5,7 @@ export class CoordinadorClientService implements InMemoryDbService {
     let coordinadores = [
       {
         "id": 1,
-        "name": "Juan",
+        "nombre": "Juan",
         "username": "juan",
         "password": "juan",
         "tecnicos": [
@@ -92,19 +92,19 @@ export class CoordinadorClientService implements InMemoryDbService {
       },
       {
         "id": 2,
-        "name": "Pedro",
+        "nombre": "Pedro",
         "username": "ususario",
         "password": "clave"
       },
       {
         "id": 3,
-        "name": "Pablo",
+        "nombre": "Pablo",
         "username": "soyPablo",
         "password": "aaaaaa"
       },
       {
         "id": 4,
-        "name": "Monica",
+        "nombre": "Monica",
         "username": "moni",
         "password": "1234"
       }

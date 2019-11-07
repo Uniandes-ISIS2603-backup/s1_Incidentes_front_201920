@@ -5,11 +5,11 @@ import { CoordinadorDetail } from "./coordinador-detail";
 import { Observable, of } from "rxjs";
 
 import { catchError, map, tap } from "rxjs/operators";
+//import { environment } from "src/environments/environment.prod";
 
-const API_URL = "localhost:8080/s1_incidentes-api/api/";
+//const API_URL = environment.apiURL;
 
-
-const coordinadores = "coordinador";
+const coordinadores = '/coordinador';
 
 @Injectable({ providedIn: "root" })
 export class CoordinadorService {
@@ -35,7 +35,7 @@ export class CoordinadorService {
   /** POST: add a new client to the server */
   createCoordinador(coordinador: Coordinador): Observable<Coordinador> {
     return this.http.post<Coordinador>(this.coordinadorUrl, coordinador, this.httpOptions).pipe(
-      tap((coordinador: Coordinador) => console.log(`added coordinador w/ ${coordinador.name} id=${coordinador.id}`)));
+      tap((coordinador: Coordinador) => console.log(`added coordinador w/ ${coordinador.nombre} id=${coordinador.id}`)));
   }
 
   /** DELETE: delete the client from the server */

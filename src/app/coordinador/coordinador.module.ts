@@ -11,7 +11,7 @@ import { CoordinadorIncidentesComponent } from './coordinador-incidentes/coordin
 
 @NgModule({
   imports: [
-    CommonModule, AppRoutingModule, ReactiveFormsModule
+    CommonModule, AppRoutingModule, ReactiveFormsModule,
   ],
   declarations: [CoordinadorListComponent, CoordinadorDetailListComponent, CoordinadorCreateComponent, CoordinadorTecnicosComponent, CoordinadorIncidentesComponent,
   ],

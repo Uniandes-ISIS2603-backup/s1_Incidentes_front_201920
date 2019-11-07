@@ -22,7 +22,7 @@ export class CoordinadorCreateComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.coordinadorForm = this.formBuilder.group({
-      name: ["", [Validators.required, Validators.minLength(2)]],
+      nombre: ["", [Validators.required, Validators.minLength(2)]],
       username: ["", [Validators.required, Validators.minLength(2)]],
       password: ["", [Validators.required, Validators.minLength(2)]]
     });
@@ -42,7 +42,7 @@ export class CoordinadorCreateComponent implements OnInit {
 
   showSuccess() {
     for (let i = 0; i < this.coordinadores.length; i++){
-      console.log(this.coordinadores[i].id+' '+this.coordinadores[i].name+' '+this.coordinadores[i].username);
+      console.log(this.coordinadores[i].id+' '+this.coordinadores[i].nombre+' '+this.coordinadores[i].username);
     }
     this.toastr.success("Coordinador", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
    
