@@ -1,6 +1,6 @@
 export class Coordinador {
-
-  name: string;
+  id:number;
+  nombre: string;
   username: string;
   password:string;
 }
