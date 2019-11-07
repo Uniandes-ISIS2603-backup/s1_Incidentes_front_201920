@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core"; 
 import {Incidente} from "../incidente";
 import {IncidenteService} from "../incidente.service";
 @Component({

@@ -1,34 +1,71 @@
-<div class="container-fluid">
-	<div class="col-md-2">
-		<table class="table table-striped">
-			<thead class="thead-light">
-				<tr>
-					<th> Incidente Detail</th>
-					<th scope="col">Datos del Incidente</th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let Incidente of incidentes">
-					<td>{{incidente.id}}</td>
-                    <td>{{incidente.fechaHoraInicial}}</td>
-                    <td>{{incidente.fechaHoraFinal}}</td>
-                    <td>{{incidente.descripcion}}</td>
-                    <td>{{incidente.observaciones}}</td>
-                    <td>{{incidente.calificacion}}</td>
-                    <td>{{incidente.categoria}}</td>
-                    <td>{{incidente.prioridad}}</td>
-                    <td>{{incidente.solucionado}}</td>
-                    <td>{{incidente.reabrir}}</td>
-                    <td>{{incidente.equipo}}</td>
-                    <td>{{incidente.tecnico}}</td>
-                    <td>{{incidente.empleado}}</td>
-                    <td>{{incidente.coordinador}}</td>
-                    <td>{{incidente.actuaciones}}</td>
+<<div class="card-group"  >
+	<div class="card" style="width: 18rem;">
+		 <div class="card-body">
+		   <h5 class="card-title">Incidente: {{incidenteDetail.id}}</h5>
+		   <h6 class="card-subtitle mb-2 text-muted">Descripcion: {{incidenteDetail.descripcion}}<br>
+													 Observaciones: {{incidenteDetail.observaciones}}<br>
+													 </h6>
+													 <b>DATOS GENERALES</b>
+													 <table class="table table-striped">
+														 
+													  <thead class="thead-dark">
+														   <tr>
+																
+																<th scope="col">fechaHoraInicial</th>
+																<th scope="col">fechaHoraFinal</th> 
+																<th scope="col">Calificacion</th>
+																<th scope="col">Prioridad</th>
+																<th scope="col">Categoria</th>
+																<th scope="col">Solucionado</th>
+																<th scope="col">Reabrir</th>
+																<th scope="col">equipo</th>
+																
+														   </tr>
+													  </thead>
+													  <tbody>
+														   <tr>
+														   
+														   <td>{{incidenteDetail.fechaHoraInicial}}</td>
+														   <td>{{incidenteDetail.fechaHoraFinal}}</td>
+														   <td>{{incidenteDetail.calificacion}}</td>
+														   <td>{{incidenteDetail.prioridad}}</td>
+														   <td>{{incidenteDetail.categoria}}</td> 
+														   <td>{{incidenteDetail.solucionado}}</td>
+														   <td>{{incidenteDetail.reabrir}}</td>
+														   <td>{{incidenteDetail.equipo}}</td>
+													  </tr>
 
-				</tr>
+												 </tbody>
+											</table>
+											<b>PERSONAS INVOLUCRADAS</b>
+											<table class="table table-striped">
+												<thead class="thead-dark">
+													 <tr>
+														  
+														  <th scope="col">Coordinador</th>
+														  <th scope="col">Empleado</th> 
+														  <th scope="col">Tecnico</th>
+														  
+														  
+													 </tr>
+												</thead>
+												<tbody>
+													 <tr>
+													 
+													 <td>{{incidenteDetail.coordinador}}</td>
+													 <td>{{incidenteDetail.empleado}}</td>
+													 <td>{{incidenteDetail.tecnico}}</td>
+													 
+												</tr>
 
-			</tbody>
-		</table>
-	</div>
+										   </tbody>
+									  </table>
+									  <a href="/incidente/{{id}}/actuaciones"   class="btn btn-primary">Actuaciones</a>
+									  <p>     </p>
+									  <a href="/coordinador/{{incidenteDetail.coordinador}}"   class="btn btn-dark">Coordinador</a>
+									  <p>     </p>
+									  <a href="/incidentes"   class="btn btn-danger">Volver</a>
+
+		 </div>
+	</div>   
 </div>
