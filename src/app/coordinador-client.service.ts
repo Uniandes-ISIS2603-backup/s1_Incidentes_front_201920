@@ -14,42 +14,42 @@ export class CoordinadorClientService implements InMemoryDbService {
             "username": "t1",
             "password": "t1",
             "incidentesAsignados": 2,
-            "especialidad" : "HARDWARE"
+            "especialidad": "HARDWARE"
           },
           {
             "id": 2,
             "username": "t2",
             "password": "t2",
             "incidentesAsignados": 1,
-            "especialidad" : "HARDWARE"
+            "especialidad": "HARDWARE"
           },
           {
             "id": 3,
             "username": "t3",
             "password": "t3",
             "incidentesAsignados": 3,
-            "especialidad" : "HARDWARE"
+            "especialidad": "HARDWARE"
           },
           {
             "id": 4,
             "username": "t4",
             "password": "t4",
             "incidentesAsignados": 0,
-            "especialidad" : "SW_SO"
+            "especialidad": "SW_SO"
           },
           {
             "id": 5,
             "username": "t5",
             "password": "t5",
             "incidentesAsignados": 1,
-            "especialidad" : "SW_SO"
+            "especialidad": "SW_SO"
           },
           {
             "id": 6,
             "username": "t6",
             "password": "t6",
             "incidentesAsignados": 4,
-            "especialidad" : "SW_AD"
+            "especialidad": "SW_AD"
           }
         ],
         "incidentes": [
@@ -69,8 +69,8 @@ export class CoordinadorClientService implements InMemoryDbService {
             "empleado": "empleado1",
             "coordinador": "coordinador1",
             "actuaciones": []
-        },
-        {
+          },
+          {
             "id": 2,
             "fechaHoraInicial": "fecha3",
             "fechaHoraFinal": "fecha4",
@@ -86,7 +86,7 @@ export class CoordinadorClientService implements InMemoryDbService {
             "empleado": "empleado2",
             "coordinador": "coordinador2",
             "actuaciones": []
-        }
+          }
         ]
 
       },
@@ -109,6 +109,48 @@ export class CoordinadorClientService implements InMemoryDbService {
         "password": "1234"
       }
     ];
-    return { coordinadores };
+    let empleados = [
+      {
+        "id": 1,
+        "username": "amada",
+        "password": "elmemintio",
+        "name": "Amanda Miguel",
+        "numIncidentes": 0,
+        "incidentes": []
+      },
+      {
+        "id": 2,
+        "username": "juan",
+        "password": "yononaciparaamar",
+        "name": "Juan Gabriel",
+        "numIncidentes": 0,
+        "incidentes": []
+      },
+      {
+        "id": 3,
+        "username": "jose",
+        "password": "eltriste",
+        "name": "Jose Jose",
+        "numIncidentes": 0,
+        "incidentes": []
+      },
+      {
+        "id": 4,
+        "username": "camilo",
+        "password": "quieressermiamante",
+        "name": "Camilo Sesto",
+        "numIncidentes": 0,
+        "incidentes": []
+      }
+
+    ];
+    let incidentes = [
+    ];
+    let tecnicos = [
+    ];
+    let actuaciones = [
+    ];
+    return { coordinadores, empleados, incidentes, tecnicos, actuaciones};
+
   }
 }
