@@ -15,4 +15,4 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
   exports : [IncidenteListComponent, IncidenteDetailListComponent],
   providers: [IncidenteService]
 })
-export class IncidenteModule { }
+export class IncidenteModule {}

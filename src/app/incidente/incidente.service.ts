@@ -19,6 +19,6 @@ export class IncidenteService {
   }
 
   getIncidentesDetail(incidenteId): Observable<IncidenteDetail> {
-    return this.http.get<IncidenteDetail>(API_URL + "/incidente/" + incidenteId );
+    return this.http.get<IncidenteDetail>(API_URL + "/incidentes/" + incidenteId );
   }
 }

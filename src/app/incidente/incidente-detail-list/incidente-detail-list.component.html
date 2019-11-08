@@ -1,4 +1,4 @@
-<<div class="card-group"  >
+<div class="card-group"  >
 	<div class="card" style="width: 18rem;">
 		 <div class="card-body">
 		   <h5 class="card-title">Incidente: {{incidenteDetail.id}}</h5>
@@ -25,7 +25,7 @@
 													  <tbody>
 														   <tr>
 														   
-														   <td>{{incidenteDetail.fechaHoraInicial}}</td>
+														   <td>{{incidenteDetail.fechaHoraInicio}}</td>
 														   <td>{{incidenteDetail.fechaHoraFinal}}</td>
 														   <td>{{incidenteDetail.calificacion}}</td>
 														   <td>{{incidenteDetail.prioridad}}</td>
@@ -52,19 +52,19 @@
 												<tbody>
 													 <tr>
 													 
-													 <td>{{incidenteDetail.coordinador}}</td>
-													 <td>{{incidenteDetail.empleado}}</td>
-													 <td>{{incidenteDetail.tecnico}}</td>
+													 <td><b>Id: </b>{{incidenteDetail.coordinador.id}}<b> Nombre: </b>{{incidenteDetail.coordinador.nombre}}</td>
+													 <td><b>Id: </b>{{incidenteDetail.empleado.id}}<b> Nombre: </b>{{incidenteDetail.empleado.nombre}}</td>
+													 <td><b>Id: </b>{{incidenteDetail.tecnico.id}}<b> Nombre: </b>{{incidenteDetail.tecnico.nombre}}</td>
 													 
 												</tr>
 
 										   </tbody>
 									  </table>
-									  <a href="/incidente/{{id}}/actuaciones"   class="btn btn-primary">Actuaciones</a>
+									  <a href="/incidente/{{id}}/actuaciones"   class="btn btn-outline-primary">Actuaciones</a>
 									  <p>     </p>
-									  <a href="/coordinador/{{incidenteDetail.coordinador}}"   class="btn btn-dark">Coordinador</a>
+									  <a href="/coordinador/{{incidenteDetail.coordinador.id}}"   class="btn btn-outline-dark">Coordinador</a>
 									  <p>     </p>
-									  <a href="/incidentes"   class="btn btn-danger">Volver</a>
+									  <a href="/incidentes"   class="btn btn-outline-danger">Volver</a>
 
 		 </div>
 	</div>   
