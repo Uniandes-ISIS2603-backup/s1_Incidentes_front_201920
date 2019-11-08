@@ -1,0 +1,17 @@
+{
+    "id": 1,
+    "fechaHoraInicial": "fecha1",
+    "fechaHoraFinal": "fecha2",
+    "descripcion": "descripcion1",
+    "observaciones": "observacion1",
+    "calificacion": 1,
+    "categoria": "categoria1",
+    "prioridad": "prioridad1",
+    "solucionado": "true",
+    "reabrir": "false",
+    "equipo": "equipo1",
+    "tecnico": "tecnico1",
+    "empleado": "empleado1",
+    "coordinador": "coordinador1",
+    "actuaciones": []
+}

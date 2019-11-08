@@ -7,17 +7,62 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
 import { CoordinadorListComponent } from '../coordinador/coordinador-list/coordinador-list.component';
+import { CoordinadorDetailListComponent } from '../coordinador/coordinador-detail-list/coordinador-detail-list.component';
+import { CoordinadorCreateComponent } from '../coordinador/coordinador-create/coordinador-create.component';
 import { IncidenteListComponent } from '../incidente/incidente-list/incidente-list.component';
+import { CoordinadorTecnicosComponent } from '../coordinador/coordinador-tecnicos/coordinador-tecnicos.component';
+import { CoordinadorIncidentesComponent } from '../coordinador/coordinador-incidentes/coordinador-incidentes.component';
 import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
+import { IncidenteDetailListComponent } from '../incidente/incidente-detail-list/incidente-detail-list.component';
 
 const routes: Routes = [
 
     {
         path: 'coordinador',
+        children: [
+            {
+                path: ":id",
+                component: CoordinadorDetailListComponent,
+                children: [
+                    {
+                        path: "tecnicos",
+                        component: CoordinadorTecnicosComponent
+                    },
+                    {
+                        path: "incidentes",
+                        component: CoordinadorIncidentesComponent
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        path: 'coordinadores',
         component: CoordinadorListComponent,
+        children: [
+            {
+                path: "create",
+                component: CoordinadorCreateComponent
+            }
+        ]
     },
     {
         path: 'incidente',
+        children: [
+            {
+                path: ":id",
+                component: IncidenteDetailListComponent,
+                children: [
+                    {
+                        path: "actuaciones",
+                        component: IncidenteDetailListComponent
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        path: 'incidentes',
         component: IncidenteListComponent,
     },
     {

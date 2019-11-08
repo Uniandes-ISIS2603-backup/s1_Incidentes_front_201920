@@ -1,8 +1,6 @@
-export interface Coordinador {
-
-  name: string;
+export class Coordinador {
+  id:number;
+  nombre: string;
   username: string;
   password:string;
-  tecnicos:string;
-  incidentes:string;
 }

@@ -1,26 +1,40 @@
 <div class="container-fluid">
-	<div class="col-md-2">
-		<table class="table table-striped">
-			<thead class="thead-light">
-				<tr>
-					<th> Coordinador Detail</th>
-					<th scope="col">Nombre de usuario</th>
-					<th scope="col">Clave</th>
-          <th scope="col">Tecnicos</th>
-					<th scope="col">Incidentes</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let coordinador of coordinadores">
-					<td>{{coordinador.name}}</td>
-					<td>{{coordinador.username}}</td>
-					<td>{{coordinador.password}}</td>
-					<td>{{coordinador.tecnicos}}</td>
-					<td>{{coordinador.incidentes}}</td>
-
-				</tr>
-
-			</tbody>
-		</table>
+	<div class="row">
+		<div class="col">
+			<div class="row">
+				<div class="card" style="width: 18rem;">
+					<img src="https://icon-library.net/images/user-image-icon/user-image-icon-17.jpg"
+						class="card-img-top" alt="...">
+					<div class="card-body">
+						<h4 class="card-title">
+							Informacion del coordinador:
+						</h4>
+						<p class="card-text">
+							<li>
+								Nombre: {{coordinadorDetail.nombre}}
+							</li>
+							<li>
+								Nombre de usuario: {{coordinadorDetail.username}}
+							</li>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-9">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<ul class="nav justify-content-center">
+					<li class="nav-item">
+						<a class="nav-link" routerLink="/coordinador/{{id}}/tecnicos"
+							routerLinkActive="active">Tecnicos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" routerLink="/coordinador/{{id}}/incidentes"
+							routerLinkActive="active">Incidentes</a>
+					</li>
+				</ul>
+			</nav>
+			<router-outlet></router-outlet>
+		</div>
 	</div>
 </div>
