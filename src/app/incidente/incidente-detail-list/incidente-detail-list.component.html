@@ -1,11 +1,24 @@
-<div class="card-group"  >
+<table class="table table-striped">
+	<tr>
+	<td style="width:15%">
 	<div class="card" style="width: 18rem;">
 		 <div class="card-body">
 		   <h5 class="card-title">Incidente: {{incidenteDetail.id}}</h5>
 		   <h6 class="card-subtitle mb-2 text-muted">Descripcion: {{incidenteDetail.descripcion}}<br>
 													 Observaciones: {{incidenteDetail.observaciones}}<br>
 													 </h6>
-													 <b>DATOS GENERALES</b>
+													 <a href="/incidente/{{id}}/actuaciones"   class="btn btn-outline-primary">Actuaciones</a>
+									  <p>     </p>
+									  <a href="/coordinador/{{incidenteDetail.coordinador.id}}"   class="btn btn-outline-dark">Coordinador</a>
+									  <p>     </p>
+									  <a href="/incidentes"   class="btn btn-outline-danger">Volver</a>
+													 </div>
+													 </div>
+													 
+													</td>
+													<td style="width:80%">
+															
+																			<b>DATOS GENERALES</b>       
 													 <table class="table table-striped">
 														 
 													  <thead class="thead-dark">
@@ -60,12 +73,10 @@
 
 										   </tbody>
 									  </table>
-									  <a href="/incidente/{{id}}/actuaciones"   class="btn btn-outline-primary">Actuaciones</a>
-									  <p>     </p>
-									  <a href="/coordinador/{{incidenteDetail.coordinador.id}}"   class="btn btn-outline-dark">Coordinador</a>
-									  <p>     </p>
-									  <a href="/incidentes"   class="btn btn-outline-danger">Volver</a>
+									  
+									  
 
-		 </div>
-	</div>   
-</div>
+		    
+	</td>
+</tr>
+</table>
