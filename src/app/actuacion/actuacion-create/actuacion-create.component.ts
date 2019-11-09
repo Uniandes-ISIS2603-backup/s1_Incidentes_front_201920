@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActuacionService } from '../actuacion.service';
 import { Actuacion } from '../actuacion';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-actuacion-create',
@@ -15,9 +16,10 @@ export class ActuacionCreateComponent implements OnInit {
 
   constructor(
     private actuacionService: ActuacionService,
-    private FormBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
   ) { 
-    this.actuacionForm = this.FormBuilder.group({
+    this.actuacionForm = this.formBuilder.group({
       fechaHora: ["", Validators.required],
       descripcion: ["", [Validators.required, Validators.minLength(2)]]
     })
@@ -29,6 +31,15 @@ export class ActuacionCreateComponent implements OnInit {
       this.actuaciones.push(actuacion);
     });
     this.actuacionForm.reset();
+    this.showSuccess();
+  }
+
+  showSuccess() {
+    for (let i = 0; i < this.actuaciones.length; i++){
+      console.log(this.actuaciones[i].descripcion+' '+this.actuaciones[i].fechaHora);
+    }
+    this.toastr.success("Actuación", "Creada exitosamente!", {"progressBar": true,timeOut:4000});
+   
   }
 
   ngOnInit() {
