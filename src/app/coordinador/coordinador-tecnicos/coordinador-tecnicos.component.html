@@ -12,9 +12,11 @@
         <tbody>
 
           <tr *ngFor="let t of coordinadorDetail.tecnicos">
-            <td>{{t.username}}</td>
+            <a href="/tecnicos/{{t.id}}">
+              <td>{{t.id}}</td>
+            </a>
             <td>{{t.especialidad}}</td>
-            <td>{{t.incidentesAsignados}}</td>
+            <td>{{t.numCasos}}</td>
 
           </tr>
         </tbody>
