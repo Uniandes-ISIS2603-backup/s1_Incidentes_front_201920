@@ -38,7 +38,7 @@
             <tbody>
                 
                 <tr *ngFor="let i of empleadoDetail.incidentes">
-                  <td>{{i.id}}</td>
+                  <td><a href="/incidente/{{i.id}}">{{i.id}}</a></td>
                   <td>{{i.descripcion}}</td>
                   <td>{{i.categoria}}</td>
                   <td>{{i.prioridad}}</td>

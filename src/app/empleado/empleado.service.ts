@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Empleado } from './empleado';
 import { EmpleadoDetail } from './empleado-detail';
 import { Observable } from 'rxjs';
@@ -12,6 +12,10 @@ const empleados = '/empleado';
 @Injectable({ providedIn: "root" })
 export class EmpleadoService {
 
+  httpOptions = {
+    headers: new HttpHeaders({ "Content-Type": "application/json" })
+  };
+
   constructor(private http: HttpClient) { }
 
   getEmpleados(): Observable<Empleado[]> {
@@ -22,9 +26,10 @@ export class EmpleadoService {
     return this.http.get<EmpleadoDetail>(API_URL + "/empleado/" + empleadoId );
   }
 
-  /** POST: add a new client to the server */
+  /** POST: add a new empleado to the server */
   createEmpleado(empleado: Empleado): Observable<Empleado> {
-    return this.http.post<Empleado>(API_URL+ empleados, empleado).pipe(
+    empleado.numIncidentes=0;
+    return this.http.post<Empleado>(API_URL+ empleados, empleado, this.httpOptions).pipe(
       tap((empleado: Empleado) => console.log(`added empleado w/ ${empleado.nombre} id=${empleado.id}`)));
   }
 }
