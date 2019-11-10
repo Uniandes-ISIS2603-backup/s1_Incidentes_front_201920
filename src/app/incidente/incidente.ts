@@ -11,8 +11,8 @@ export class Incidente {
     reabrir: string;
     equipo: string;
 
-    tecnico: string;
-    empleado: string;
-    coordinador: string;
+    tecnico: number;
+    empleado: number;
+    coordinador: number;
     
   } 

@@ -32,7 +32,7 @@ export class IncidenteCreateComponent implements OnInit {
                     solucionado: ["", [Validators.required, Validators.minLength(1)]],
                     reabrir: ["", [Validators.required, Validators.minLength(1)]],
                     equipo: ["", [Validators.required, Validators.minLength(1)]],
-
+                    
 
                 }
                 
