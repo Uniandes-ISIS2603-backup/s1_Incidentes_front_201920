@@ -19,6 +19,11 @@ export class IncidenteService {
   }
 
   getIncidentesDetail(incidenteId): Observable<IncidenteDetail> {
-    return this.http.get<IncidenteDetail>(API_URL + "/incidente/" + incidenteId );
+    return this.http.get<IncidenteDetail>(API_URL + "/incidentes/" + incidenteId ); 
+  }
+   /** POST: add a new client to the server */
+   createIncidente(incidente: Incidente): Observable<Incidente> {
+    return this.http.post<Incidente>(API_URL+ "/incidentes", incidente).pipe(
+      tap((incidente: Incidente) => console.log(`added incidente w/ ${incidente.descripcion} id=${incidente.observaciones}`)));
   }
 }
