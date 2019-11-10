@@ -14,6 +14,8 @@ import { CoordinadorTecnicosComponent } from '../coordinador/coordinador-tecnico
 import { CoordinadorIncidentesComponent } from '../coordinador/coordinador-incidentes/coordinador-incidentes.component';
 import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
 import { IncidenteDetailListComponent } from '../incidente/incidente-detail-list/incidente-detail-list.component';
+import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-detail.component';
+import { EmpleadoCreateComponent } from '../empleado/empleado-create/empleado-create.component';
 
 const routes: Routes = [
 
@@ -66,8 +68,23 @@ const routes: Routes = [
         component: IncidenteListComponent,
     },
     {
-        path: 'empleado',
+        path: 'empleados',
         component: EmpleadoListComponent,
+        children: [
+            {
+                path: "create",
+                component: EmpleadoCreateComponent
+            }
+        ]
+    },
+    {
+        path: 'empleado',
+        children: [
+            {
+                path: ":id",
+                component: EmpleadoDetailComponent,
+            }
+        ]
     },
     {
         path: 'auth',
