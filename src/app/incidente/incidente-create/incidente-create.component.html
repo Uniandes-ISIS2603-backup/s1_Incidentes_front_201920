@@ -4,7 +4,7 @@
       <label for="fechaHoraInicio">
         Fecha Hora de Incio
       </label>
-      <input novalidate id="fechaHoraInicio" class="form-control" formControlName="fechaHoraInicio" placeholder="2018-03-29 13:34:00.000">
+      <input novalidate id="fechaHoraInicio" class="form-control" formControlName="fechaHoraInicio" placeholder="2018-03-29T13:34:00.000">
       <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('fechaHoraInicio').hasError('required') && 
           incidenteForm.get('fechaHoraInicio').touched">
         Date required
@@ -15,7 +15,7 @@
       <label for="fechaHoraFinal">
         Fecha de finalizacion estimada
       </label>
-      <input id="fechaHoraFinal" type="text" class="form-control" formControlName="fechaHoraFinal" placeholder="2018-03-29 13:34:00.000">
+      <input id="fechaHoraFinal" type="text" class="form-control" formControlName="fechaHoraFinal" placeholder="2018-03-29T13:34:00.000">
       <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('fechaHoraFinal').hasError('required') && 
           incidenteForm.get('fechaHoraFinal').touched">
         Date required
@@ -76,7 +76,7 @@
         <label for="solucionado">
           Estado de Solucion
         </label>
-        <input id="solucionado" type="text" class="form-control" formControlName="solucionado" placeholder="true o false">
+        <input id="solucionado" type="text" class="form-control" formControlName="solucionado" placeholder="1 o0">
         <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('solucionado').hasError('required') && 
             incidenteForm.get('solucionado').touched">
            required
@@ -86,7 +86,7 @@
         <label for="reabrir">
           Estado de Reabrir
         </label>
-        <input id="reabrir" type="text" class="form-control" formControlName="reabrir" placeholder="true o false">
+        <input id="reabrir" type="text" class="form-control" formControlName="reabrir" placeholder="1 o 0">
         <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('reabrir').hasError('required') && 
             incidenteForm.get('reabrir').touched">
            required
@@ -102,28 +102,8 @@
            required
         </div>
       </div>
-      <div class="form-group  mx-sm-3 mb-2">
-        <label for="tecnico">
-          Tecnico
-        </label>
-        <input id="equipo" type="text" class="form-control" formControlName="tecnico" placeholder="El id del tecnico">
-        
-      </div>
-      <div class="form-group  mx-sm-3 mb-2">
-        <label for="empleado">
-          Empleado
-        </label>
-        <input id="empleado" type="text" class="form-control" formControlName="empleado" placeholder="El id del empleado">
-        
-      </div>
-      <div class="form-group  mx-sm-3 mb-2">
-        <label for="coordinador">
-          Coordinador
-        </label>
-        <input id="coordinador" type="text" class="form-control" formControlName="coordinador" placeholder="El id del coordinador">
-        
-      </div>
+      
   
-    <button class="button mx-sm-3 mb-2" type="submit" >Create</button>
+    <button class="button mx-sm-3 mb-2" type="submit">Create</button>
   
   </form>
