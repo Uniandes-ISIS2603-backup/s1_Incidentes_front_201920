@@ -32,13 +32,14 @@ export class IncidenteCreateComponent implements OnInit {
                     solucionado: ["", [Validators.required, Validators.minLength(1)]],
                     reabrir: ["", [Validators.required, Validators.minLength(1)]],
                     equipo: ["", [Validators.required, Validators.minLength(1)]],
-                    tecnico: ["", [Validators.required, Validators.minLength(1)]],
-                    empleado: ["", [Validators.required, Validators.minLength(1)]],
-                    coordinador: ["", [Validators.required, Validators.minLength(1)]]
+                    tecnico: <number><unknown>[],
+                    empleado:<number><unknown>[],
+                    coordinador: <number><unknown>[]
 
                 }
+                
                 );
-    
+            
       }
     createIncidente(newIncidente: Incidente) {
         console.warn("el incidente fue creado", newIncidente);
