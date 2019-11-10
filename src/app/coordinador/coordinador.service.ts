@@ -30,7 +30,7 @@ export class CoordinadorService {
 
   /** POST: add a new client to the server */
   createCoordinador(coordinador: Coordinador): Observable<Coordinador> {
-    return this.http.post<Coordinador>(API_URL, coordinador).pipe(
+    return this.http.post<Coordinador>(API_URL+ "/coordinador", coordinador).pipe(
       tap((coordinador: Coordinador) => console.log(`added coordinador w/ ${coordinador.nombre} id=${coordinador.id}`)));
   }
 
