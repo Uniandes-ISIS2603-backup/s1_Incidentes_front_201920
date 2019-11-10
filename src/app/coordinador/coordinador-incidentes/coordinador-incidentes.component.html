@@ -5,7 +5,6 @@
         <thead class="thead-light">
           <tr>
             <th> Incidente </th>
-            <th scope="col">Descripcion</th>
             <th scope="col">Categoria</th>
             <th scope="col">Prioridad</th>
             <th scope="col">Equipo</th>
@@ -13,23 +12,16 @@
           </tr>
         </thead>
         <tbody>
-
           <tr *ngFor="let i of coordinadorDetail.incidentes">
             <a href="/incidente/{{i.id}}">
               <td>{{i.id}}</td>
             </a>
-
-            <td>{{i.descripcion}}</td>
             <td>{{i.categoria}}</td>
             <td>{{i.prioridad}}</td>
             <td>{{i.equipo}}</td>
             <td>{{i.reabrir}}</td>
-
-
           </tr>
-
         </tbody>
-
       </table>
     </div>
     <div class="col">
@@ -47,10 +39,10 @@
       <div class="row">
         <button type="button" id="button-filterByEspecialidad" class="btn btn-info">Aplicar Filtro </button>
       </div>
-      <br>  
+      <br>
       <div class="row">
         <h5>
-          Filtrar por prioridad 
+          Filtrar por prioridad
         </h5>
         <select name="typelist" id="filtroEspecialidad" form="typeform">
           <option value="alta">alta</option>
@@ -63,6 +55,5 @@
         <button type="button" id="button-filterByEspecialidad" class="btn btn-info">Aplicar Filtro </button>
       </div>
     </div>
-
   </div>
 </div>
