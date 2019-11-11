@@ -4,7 +4,7 @@ import {ToastrService} from 'ngx-toastr';
 
 import {TecnicoService} from '../tecnico.service';
 import {Tecnico} from '../tecnico';
-import {TecnicoDetail} from '../tecnico-detail';
+import {TecnicoDetail} from '../tecnico-detail/tecnico.detail.component';
 
 /**
 * TEl componente list de tecnico

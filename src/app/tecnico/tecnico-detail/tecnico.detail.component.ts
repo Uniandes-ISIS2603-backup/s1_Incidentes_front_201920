@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TecnicoService } from '../tecnico.service';
-import { TecnicoDetail } from '../tecnico-detail';
+import { TecnicoDetail } from '../tecnico-detail/tecnico.detail.component';
 
 @Component({
     selector: 'app-tecnico-detail',
