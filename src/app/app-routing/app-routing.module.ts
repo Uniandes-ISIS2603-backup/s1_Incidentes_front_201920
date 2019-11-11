@@ -72,9 +72,12 @@ const routes: Routes = [
         component: EmpleadoListComponent,
     },
     {
-        path: 'actuaciones',
-        component: ActuacionListComponent,
+        path: 'actuacion',
         children: [
+            {
+                path: 'list',
+                component: ActuacionListComponent
+            },
             {
                 path: "create",
                 component: ActuacionCreateComponent

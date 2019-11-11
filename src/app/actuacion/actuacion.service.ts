@@ -5,11 +5,12 @@ import { Actuacion } from './actuacion';
 import { Observable, of } from "rxjs";
 
 import { catchError, map, tap } from "rxjs/operators";
+import { environment } from "../../environments/environment";
 
 @Injectable({ providedIn: "root"})
 export class ActuacionService {
 
-  private actuacionUrl = "api/incidentes/0/actuacion"
+  private actuacionUrl = `${environment.apiURL}/incidentes/1000000/actuacion`;
   //Este recurso es dependiente de incidente
   //Para poder realizar las actividades, me fue necesario referenciar al incidente
   //Con id 0 como si este existiera
@@ -31,7 +32,7 @@ export class ActuacionService {
 
   createActuacion(actuacion: Actuacion): Observable<Actuacion> {
     return this.http.post<Actuacion>(this.actuacionUrl, actuacion, this.httpOptions).pipe(tap((actuacion:Actuacion) =>
-      console.log(`added actuacion w/ ${actuacion.descripcion} id = ${actuacion.id}`)));
+      console.log(`added actuacion w/ ${actuacion.descripcion} , ${actuacion.fechaHora} id = ${actuacion.id}`)));
   }
 
   deleteActuacion(actuacion:Actuacion | number): Observable<Actuacion> {

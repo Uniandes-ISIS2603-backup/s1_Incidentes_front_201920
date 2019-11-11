@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Actuacion } from '../actuacion';
 import { ActuacionService } from '../actuacion.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-actuacion-list',
@@ -9,7 +10,7 @@ import { ActuacionService } from '../actuacion.service';
 })
 export class ActuacionListComponent implements OnInit {
 
-  actuaciones: Actuacion[];
+  actuaciones: Actuacion[] = [];
 
   constructor(private actuacionService: ActuacionService) { }
 
@@ -18,7 +19,13 @@ export class ActuacionListComponent implements OnInit {
   }
 
   getActuaciones(): void {
-    this.actuacionService.getActuaciones().subscribe(actuaciones => this.actuaciones = actuaciones);
+    console.log("getActuaciones on init");
+    this.actuacionService.getActuaciones().subscribe(actuaciones => {
+      actuaciones.map((actuacion: Actuacion)=>{
+        actuacion.fechaHora = actuacion.fechaHora.slice(0,-5);
+        this.actuaciones.push(actuacion);
+      })
+    });
   } 
 
 }

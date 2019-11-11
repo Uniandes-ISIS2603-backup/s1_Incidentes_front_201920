@@ -20,13 +20,13 @@ export class ActuacionCreateComponent implements OnInit {
     private toastr: ToastrService
   ) { 
     this.actuacionForm = this.formBuilder.group({
-      fechaHora: ["", Validators.required],
       descripcion: ["", [Validators.required, Validators.minLength(2)]]
     })
   }
 
   createActuacion(newActuacion: Actuacion) {
     console.warn("la actuación fue creada", newActuacion);
+    newActuacion.fechaHora = new Date().toISOString();
     this.actuacionService.createActuacion(newActuacion).subscribe(actuacion => {
       this.actuaciones.push(actuacion);
     });

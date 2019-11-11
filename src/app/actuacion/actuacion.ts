@@ -1,5 +1,7 @@
+import { Incidente } from "../incidente/incidente";
+
 export class Actuacion {
     id:number;
-    fechaHora:string;
+    fechaHora:any;
     descripcion:string;
 }
