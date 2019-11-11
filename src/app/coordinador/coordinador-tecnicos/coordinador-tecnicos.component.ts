@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { CoordinadorDetail } from "../coordinador-detail";
 import { CoordinadorService } from "../coordinador.service";
 import { Tecnico } from '../tecnico';
@@ -11,6 +11,19 @@ const btnfilterByEspecialidad: HTMLElement = document.getElementById(
 const filtroEspecialidad: HTMLElement = document.getElementById(
   "filtroEspecialidad"
 );
+console.log(document);
+console.log(document.getElementById(
+  "button-filtro2"
+));
+console.log(document.getElementsByClassName("btn"));
+console.log(document.getElementsByClassName("btn").item(0) );
+// btnfilterByEspecialidad.onclick = () => filtrarPorEspecialidad();
+
+
+// function filtrarPorEspecialidad(): void {
+//   console.log(btnfilterByEspecialidad);
+//   console.log(filtroEspecialidad);
+// }
 
 @Component({
   selector: 'app-coordinador-tecnicos',
@@ -38,5 +51,7 @@ export class CoordinadorTecnicosComponent implements OnInit {
   getCoordinadoreDetail(): void {
     this.coordinadorService.getDetail(this.id).subscribe(c => this.coordinadorDetail = c);
   }
+
 }
+
 
