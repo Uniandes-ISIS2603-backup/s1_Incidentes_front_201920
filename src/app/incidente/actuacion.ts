@@ -1,5 +1,5 @@
 export class Actuacion {
-    id: string;
-    name: string;
+    incidente: number;
+    fechaHora: string;
     descripcion: string;
   }

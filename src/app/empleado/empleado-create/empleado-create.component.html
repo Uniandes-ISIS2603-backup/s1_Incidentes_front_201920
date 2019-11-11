@@ -1,0 +1,40 @@
+<form [formGroup]="empleadoForm" (ngSubmit)="createEmpleado(empleadoForm.value)">
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre">
+        Name
+      </label>
+      <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Your Full Name">
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="empleadoForm.get('nombre').hasError('required') && 
+          empleadoForm.get('nombre').touched">
+        Name required
+      </div>
+    </div>
+  
+    <div class="form-group  mx-sm-3 mb-2">
+      <label for="username">
+        Username
+      </label>
+      <input id="username" type="text" class="form-control" formControlName="username" placeholder="Your username">
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="empleadoForm.get('username').hasError('required') && 
+          empleadoForm.get('username').touched">
+        Username required
+      </div>
+    </div>
+  
+    <div class="form-group  mx-sm-3 mb-2">
+      <label for="password">
+        password
+      </label>
+      <input id="password" type="text" class="form-control" formControlName="password" placeholder="Your password">
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="empleadoForm.get('password').hasError('required') && 
+          empleadoForm.get('password').touched">
+        Password required
+      </div>
+    </div>
+  
+    <button class="button mx-sm-3 mb-2" type="submit" [disabled]="empleadoForm.invalid">Create</button>
+
+    <a href="/empleados" class="btn btn-outline-danger">Cancelar</a>
+  
+  </form>

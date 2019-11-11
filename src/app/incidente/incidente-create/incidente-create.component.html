@@ -1,0 +1,110 @@
+<form [formGroup]="incidenteForm" (ngSubmit)="createIncidente(incidenteForm.value)">
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="fechaHoraInicio">
+        Fecha Hora de Incio
+      </label>
+      <input novalidate id="fechaHoraInicio" class="form-control" formControlName="fechaHoraInicio" placeholder="2018-03-29T13:34:00.000">
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('fechaHoraInicio').hasError('required') && 
+          incidenteForm.get('fechaHoraInicio').touched">
+        Date required
+      </div>
+    </div>
+  
+    <div class="form-group  mx-sm-3 mb-2">
+      <label for="fechaHoraFinal">
+        Fecha de finalizacion estimada
+      </label>
+      <input id="fechaHoraFinal" type="text" class="form-control" formControlName="fechaHoraFinal" placeholder="2018-03-29T13:34:00.000">
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('fechaHoraFinal').hasError('required') && 
+          incidenteForm.get('fechaHoraFinal').touched">
+        Date required
+      </div>
+    </div>
+  
+    <div class="form-group  mx-sm-3 mb-2">
+      <label for="descripcion">
+        Descripcion del Incidente
+      </label>
+      <input id="descripcion" type="text" class="form-control" formControlName="descripcion" placeholder="descripcion del incidente">
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('descripcion').hasError('required') && 
+          incidenteForm.get('descripcion').touched">
+        Description required
+      </div>
+    </div>
+    <div class="form-group  mx-sm-3 mb-2">
+        <label for="observaciones">
+          Observaciones del incidente
+        </label>
+        <input id="observaciones" type="text" class="form-control" formControlName="observaciones" placeholder="observaciones del incidente">
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('observaciones').hasError('required') && 
+            incidenteForm.get('observaciones').touched">
+        Observations required
+        </div>
+      </div>
+      <div class="form-group  mx-sm-3 mb-2">
+        <label for="calificacion">
+          Calificacion del incidente
+        </label>
+        <input id="calificacion" type="text" class="form-control" formControlName="calificacion" placeholder="calificacion del incidente">
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('calificacion').hasError('required') && 
+            incidenteForm.get('calificacion').touched">
+        Grade required
+        </div>
+      </div>
+      <div class="form-group  mx-sm-3 mb-2">
+        <label for="categoria">
+          Categoria del incidente
+        </label>
+        <input id="categoria" type="text" class="form-control" formControlName="categoria" placeholder="categoria del incidente">
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('categoria').hasError('required') && 
+            incidenteForm.get('categoria').touched">
+        Categoria requireda
+        </div>
+      </div>
+      <div class="form-group  mx-sm-3 mb-2">
+        <label for="prioridad">
+          Prioridad del incidente
+        </label>
+        <input id="prioridad" type="text" class="form-control" formControlName="prioridad" placeholder="Prioridad del incidente">
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('prioridad').hasError('required') && 
+            incidenteForm.get('prioridad').touched">
+        Prioridad requireda
+        </div>
+      </div>
+      <div class="form-group  mx-sm-3 mb-2">
+        <label for="solucionado">
+          Estado de Solucion
+        </label>
+        <input id="solucionado" type="text" class="form-control" formControlName="solucionado" placeholder="1 o0">
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('solucionado').hasError('required') && 
+            incidenteForm.get('solucionado').touched">
+           required
+        </div>
+      </div>
+      <div class="form-group  mx-sm-3 mb-2">
+        <label for="reabrir">
+          Estado de Reabrir
+        </label>
+        <input id="reabrir" type="text" class="form-control" formControlName="reabrir" placeholder="1 o 0">
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('reabrir').hasError('required') && 
+            incidenteForm.get('reabrir').touched">
+           required
+        </div>
+      </div>
+      <div class="form-group  mx-sm-3 mb-2">
+        <label for="equipo">
+          Equipo
+        </label>
+        <input id="equipo" type="text" class="form-control" formControlName="equipo" placeholder="En que equipo se registra el incidente">
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="incidenteForm.get('equipo').hasError('required') && 
+            incidenteForm.get('equipo').touched">
+           required
+        </div>
+      </div>
+      
+      
+  
+    <button class="button mx-sm-3 mb-2" type="submit">Create</button>
+  
+  </form>

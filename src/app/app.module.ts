@@ -16,6 +16,7 @@ import { AuthModule } from './auth/auth.module';
 import { CoordinadorModule } from './coordinador/coordinador.module';
 import { IncidenteModule } from './incidente/incidente.module';
 import { EmpleadoModule } from './empleado/empleado.module';
+import { ActuacionModule } from './actuacion/actuacion.module';
 
 import { ReactiveFormsModule } from "@angular/forms";
 
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from "@angular/forms";
         CoordinadorModule,
         IncidenteModule,
         EmpleadoModule,
+        ActuacionModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
