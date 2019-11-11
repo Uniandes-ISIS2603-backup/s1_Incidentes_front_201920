@@ -1,0 +1,47 @@
+import { Component } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Tecnico } from "../tecnico";
+import { TecnicoService } from "../tecnico.service";
+
+@Component({
+  selector: 'app-tecnico-create',
+  templateUrl: './tecnico.create.component.html',
+  styleUrls: ['./tecnico.create.component.css']
+})
+export class TecnicoCreateComponent 
+{
+  tecnicoForm: FormGroup;
+
+ constructor
+ ( 
+    private tecbicoService: TecnicoService,
+    private formBuilder: FormBuilder
+  ) 
+  {
+    this.tecnicoForm = this.formBuilder.group({
+      id: ["", [Validators.required]],
+      descripcion: ["", [Validators.required]],
+      calificacion: ["",[Validators.required]],
+      disponibilidad:["",[Validators.required]],
+      nombre:["",[Validators.required]],
+    });
+  }
+
+  createTecnico(newTecnico: Tecnico) 
+  {
+    // Process checkout data here
+  console.warn("Your order has been submitted", newTecnico);
+
+   this.tecnicoForm.reset();
+  }
+
+  
+  validarSiNumero(numero){
+    if (!/^([0-9])*$/.test(numero))
+      alert("El valor " + numero + " no es un número");
+  }
+
+
+
+
+}
