@@ -1,6 +1,6 @@
 <form [formGroup]="actuacionForm" (ngSubmit)="createActuacion(actuacionForm.value)">
   
-  <div class = "form-group mx-sm-3 mb-2">
+  <div class = "form-group mx-sm-3 mb-2 my-3">
     <label for = "descripcion">Descripción</label>
     <input novalidate
       id = "descripcion"
@@ -13,12 +13,10 @@
       actuacionForm.get('descripcion').touched">descripción requerida
     </div>
   </div>
-
-  <button type ="submit" class = "btn btn-primary" 
-    [disabled]="actuacionForm.invalid">Crear
-  </button>
-  <a href="/actuacion/list">
-    <button type ="button" class = "btn btn-secondary">Volver
+  <div class="col-md-12">
+    <button type="submit" class = "btn btn-primary" 
+      [disabled]="actuacionForm.invalid">Crear
     </button>
-  </a>
+    <a href="/actuacion/list" class="btn btn-secondary mx-2">Volver</a>
+  </div>
 </form>
