@@ -1,21 +1,40 @@
-<div class="panel-body">
-    <div class="border margin">
-        <p class="h3 p-3">{{tecnicoDetail.name}}<p> 
-        <div class="row">
-            <div class="col-md-3">
-                <div class="thumb">
-                    <img class="img-fluid" src='{{tecnicoDetail.image}}' alt="{{tecnicoDetail.image}}" />   
-                </div>
-            </div>
-            <div class="col">
-                <dl>     
-                    <dt>Bio</dt>
-                    <dd>{{tecnicoDetail.description}}</dd>              
-                </dl>
-            </div>
 
-        </div>
-    </div>
-    <p class="h3 p-3">Incidentes del tecnico : </p>
-    <app-incidente-list [incidente]="tecnicoDetail.incidente"></app-incidente-list>
+<div class="container-fluid">
+  <h1>Información del tecnico</h1>
+  <p class="h4 p-3">
+		Usuario:
+	</p>
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Usuario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr >
+					<th>{{tecnicoDetail.usuario}}</th>
+				</tr>
+			</tbody>
+		</table>
+  <br>
+  <p class="h4 p-3">
+	Incidentes:
+</p>
+<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>id</th>
+				<th>Incidentes</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let incidente of tecnicoDetail.numCasos">
+				<th>{{incidente.id}}</th>
+			</tr>
+		</tbody>
+	</table>
+ 
+
+
+
 </div>

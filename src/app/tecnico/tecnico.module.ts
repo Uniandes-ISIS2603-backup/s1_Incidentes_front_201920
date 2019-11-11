@@ -5,12 +5,14 @@ import { TecnicoCreateComponent } from './tecnico-create/tecnico.create.componen
 import { TecnicoService } from './tecnico.service';
 import {TecnicoDetailComponent} from './tecnico-detail/tecnico.detail.component';
 import {TecnicoListComponent} from './tecnico-list/tecnico.list.component';
+import {AppRoutingModule} from '../app-routing/app-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,ReactiveFormsModule
   ],
   declarations: [TecnicoCreateComponent, TecnicoDetailComponent, TecnicoListComponent],
+  exports: [TecnicoListComponent, TecnicoCreateComponent],
   providers: [TecnicoService]
 })
 export class TecnicoModule { }
