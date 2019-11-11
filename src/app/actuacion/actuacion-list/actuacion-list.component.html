@@ -1,0 +1,22 @@
+<div class="container-fluid ">
+  <div class = "my-3 mx-3 card">
+    <div class = "card-header">
+      <div class = "row">
+        <div class = "col-12 font-weight-bold">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            Incidente: 1000000
+            <a href="/actuacion/create">
+              <button type = "button" class = "btn btn-primary">Crear</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class = "list-group list-group-flush">
+      <li class = "list-group-item" *ngFor = "let actuacion of actuaciones">
+        <p >{{actuacion.descripcion}}</p>
+        <small class = "text-muted">{{actuacion.fechaHora | date: 'dd/MM/yyyy'}}</small>
+      </li>
+    </ul>
+  </div>
+</div>
