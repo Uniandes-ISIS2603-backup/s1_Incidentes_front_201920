@@ -1,13 +1,19 @@
-
+<div class=row>
+     <a href="/incidentes/create" class="btn btn-success">Crear Incidente</a>
+</div>
+<router-outlet></router-outlet>
+<div class="row">
+<div class="col"></div>
+<div class="col-8">  
 <div class="card-group"  *ngFor="let incidente of incidentes">
-     <div class="card" style="width: 18rem;">
+     <div class="card border-secondary mb-3" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">Incidente: {{incidente.id}}</h5>
+            <h5 class="card-Header">Incidente: {{incidente.id}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Descripcion: {{incidente.descripcion}}<br>
                                                       Observaciones: {{incidente.observaciones}}<br>
                                                       </h6>
                                                       <table class="table table-striped">
-                                                       <thead class="thead-light">
+                                                       <thead class="thead-dark">
                                                             <tr>
                                                                  
                                                                  <th scope="col">fechaHoraInicial</th>
@@ -21,7 +27,7 @@
                                                        <tbody>
                                                             <tr>
                                                             
-                                                            <td>{{incidente.fechaHoraInicial}}</td>
+                                                            <td>{{incidente.fechaHoraInicio}}</td>
                                                             <td>{{incidente.fechaHoraFinal}}</td>
                                                             <td>{{incidente.calificacion}}</td>
                                                             <td>{{incidente.prioridad}}</td>
@@ -35,4 +41,7 @@
 
           </div>
      </div>   
+</div>
+</div>
+<div class="col"></div>
 </div>

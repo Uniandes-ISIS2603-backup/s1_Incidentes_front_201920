@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
 import { EmpleadoDetail } from '../empleado-detail';
@@ -13,33 +13,21 @@ export class EmpleadoDetailComponent implements OnInit {
 
   constructor(
     private empleadoService: EmpleadoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   empleadoDetail: EmpleadoDetail;
 
   @Input() empleado_id: number;
 
-  loader: any;
-
-  getEmpleadoDetail():void {
-    this.empleadoService.getEmpleadoDetail(this.empleado_id).subscribe(o => {
-      this.empleadoDetail = o
-    });
-  }
-
-  onLoad(params) {
-    this.empleado_id = parseInt(params['id']);
-    console.log(" en detail " + this.empleado_id);
-    this.empleadoDetail = new EmpleadoDetail();
-    this.getEmpleadoDetail();
-  }
-
   ngOnInit() {
-    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-  }
+    this.empleado_id = +this.route.snapshot.paramMap.get("id");
+    this.empleadoDetail = new EmpleadoDetail;
+    this.getCoordinadoreDetail();
+ }
 
-  ngOnDestroy() {
-    this.loader.unsubscribe();
-  }
+ getCoordinadoreDetail(): void {
+    this.empleadoService.getEmpleadoDetail(this.empleado_id).subscribe(c => this.empleadoDetail = c);
+ }
 }

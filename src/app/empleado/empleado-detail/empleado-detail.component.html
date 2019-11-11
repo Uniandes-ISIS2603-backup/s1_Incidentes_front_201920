@@ -1,6 +1,58 @@
-<div class="col-md-12">
-  <div class="container-fluid">
-    <p class="h3 p-3">Empleado: {{empleadoDetail.name}}</p>
-    <p class="p-3">{{empleadoDetail.incidentes}}</p>
-  </div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col">
+			<div class="row">
+				<div class="card" style="width: 18rem;">
+					<img src="https://icon-library.net/images/user-image-icon/user-image-icon-17.jpg"
+						class="card-img-top" alt="...">
+					<div class="card-body">
+						<h4 class="card-title">
+							Informacion del empleado:
+						</h4>
+						<p class="card-text">
+							<li>
+								Nombre: {{empleadoDetail.nombre}}
+							</li>
+							<li>
+								Nombre de usuario: {{empleadoDetail.username}}
+							</li>
+						</p>
+					</div>
+				</div>
+			</div>
+    </div>
+    <div class="col-9">
+			<div class="container-fluid">
+        <div class="col-md-2">
+          <table class="table table-striped">
+            <thead class="thead-light">
+              <tr>
+                <th> Incidente </th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Categoria</th>            
+                <th scope="col">Prioridad</th>
+                <th scope="col">Equipo</th>
+                <th scope="col">Reabierto</th>
+              </tr>
+            </thead>
+            <tbody>
+                
+                <tr *ngFor="let i of empleadoDetail.incidentes">
+                  <td><a href="/incidente/{{i.id}}">{{i.id}}</a></td>
+                  <td>{{i.descripcion}}</td>
+                  <td>{{i.categoria}}</td>
+                  <td>{{i.prioridad}}</td>
+                  <td>{{i.equipo}}</td>
+                  <td>{{i.reabrir}}</td>
+                  
+        
+                </tr>
+        
+              </tbody>
+            
+          </table>
+        </div>
+      </div>
+		</div>
+	</div>
 </div>
