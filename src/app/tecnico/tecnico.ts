@@ -1,9 +1,5 @@
 export class Tecnico
 {
-     /**
-      * id del requisito
-      */
-    id:number;
  
     /**
      * IEspecialidad del tecnico
@@ -12,15 +8,15 @@ export class Tecnico
     /**
      * Numero que representa la calificacion de un tecnico
      */
-    calificacion: number ;
+    usuario: String;
     /**
      * Boolena que representa si un tecnico está disponible o no.
      */
-    disponibilidad: boolean;
+    contrasenia: String;
     /**
      * nombre del tecnico
      */
-    nombre:String;
+    numCasos:number;
    
 
 }

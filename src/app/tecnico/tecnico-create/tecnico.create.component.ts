@@ -19,11 +19,10 @@ export class TecnicoCreateComponent
   ) 
   {
     this.tecnicoForm = this.formBuilder.group({
-      id: ["", [Validators.required]],
       descripcion: ["", [Validators.required]],
-      calificacion: ["",[Validators.required]],
-      disponibilidad:["",[Validators.required]],
-      nombre:["",[Validators.required]],
+      usuario: ["",[Validators.required]],
+      contrasenia:["",[Validators.required]],
+      numcasos:["",[Validators.required]],
     });
   }
 
