@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN']">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create an tecnico</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Nombre del tecnico</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let tecnico of tecnicos" >
+                        <td style="cursor: pointer;" (click)="onSelected(tecnico.id)"> <dd>{{tecnico.name}}</dd>
+                </td>
+                <td *ngxPermissionsOnly="['ADMIN']">
+                    <button class="btn btn-primary" (click)="showHideEdit(tecnico.id)"><span class="fa fa-pencil"></span></button>
+                </td>
+                <td *ngxPermissionsOnly="['ADMIN']">
+                    <button class="btn btn-danger" (click)="deleteTecnico(tecnico.id)"><span class="fa fa-trash"></span></button>
+                </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <div *ngIf="showView">
+                <app-tecnico-detail [tecnicoDetail]="selectedTecnico"></app-tecnico-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-tecnico-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-tecnico-create>
+            </div>
+        </div>   
+    </div>
+</div>

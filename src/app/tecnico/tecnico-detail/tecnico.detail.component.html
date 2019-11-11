@@ -1,0 +1,21 @@
+<div class="panel-body">
+    <div class="border margin">
+        <p class="h3 p-3">{{tecnicoDetail.name}}<p> 
+        <div class="row">
+            <div class="col-md-3">
+                <div class="thumb">
+                    <img class="img-fluid" src='{{tecnicoDetail.image}}' alt="{{tecnicoDetail.image}}" />   
+                </div>
+            </div>
+            <div class="col">
+                <dl>     
+                    <dt>Bio</dt>
+                    <dd>{{tecnicoDetail.description}}</dd>              
+                </dl>
+            </div>
+
+        </div>
+    </div>
+    <p class="h3 p-3">Incidentes del tecnico : </p>
+    <app-incidente-list [incidente]="tecnicoDetail.incidente"></app-incidente-list>
+</div>
