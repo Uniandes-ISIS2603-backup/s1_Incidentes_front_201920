@@ -1,0 +1,22 @@
+<form [formGroup]="actuacionForm" (ngSubmit)="createActuacion(actuacionForm.value)">
+  
+  <div class = "form-group mx-sm-3 mb-2 my-3">
+    <label for = "descripcion">Descripción</label>
+    <input novalidate
+      id = "descripcion"
+      class = "form-control"
+      formControlName="descripcion"
+      placeholder="La descripción de la actuación"> 
+
+    <div class = "alert alert-danger alert-dismissible fade show" 
+      *ngIf="actuacionForm.get('descripcion').hasError('required') &&
+      actuacionForm.get('descripcion').touched">descripción requerida
+    </div>
+  </div>
+  <div class="col-md-12">
+    <button type="submit" class = "btn btn-primary" 
+      [disabled]="actuacionForm.invalid">Crear
+    </button>
+    <a href="/actuacion/list" class="btn btn-secondary mx-2">Volver</a>
+  </div>
+</form>

@@ -1,11 +1,30 @@
-<<div class="card-group"  >
+<table class="table table-striped">
+	<tr>
+	<td style="width:15%">
 	<div class="card" style="width: 18rem;">
 		 <div class="card-body">
 		   <h5 class="card-title">Incidente: {{incidenteDetail.id}}</h5>
 		   <h6 class="card-subtitle mb-2 text-muted">Descripcion: {{incidenteDetail.descripcion}}<br>
 													 Observaciones: {{incidenteDetail.observaciones}}<br>
 													 </h6>
-													 <b>DATOS GENERALES</b>
+													 
+									  <p>     </p>
+									  <a href="/coordinador/{{incidenteDetail.coordinador.id}}"   class="btn btn-outline-dark">Coordinador</a>
+									  <p>     </p>
+									  
+									  <a href="/empleado/{{incidenteDetail.empleado.id}}"   class="btn btn-outline-dark">Empleado</a>
+									  <p>     </p>
+									  
+									  <a href="/tecnico/{{incidenteDetail.tecnico.id}}"   class="btn btn-outline-dark">Tecnico</a>
+									  <p>     </p>
+									  <a href="/incidentes"   class="btn btn-outline-danger">Volver</a>
+													 </div>
+													 </div>
+													 
+													</td>
+													<td style="width:80%">
+															
+																			<b>DATOS GENERALES</b>       
 													 <table class="table table-striped">
 														 
 													  <thead class="thead-dark">
@@ -25,7 +44,7 @@
 													  <tbody>
 														   <tr>
 														   
-														   <td>{{incidenteDetail.fechaHoraInicial}}</td>
+														   <td>{{incidenteDetail.fechaHoraInicio}}</td>
 														   <td>{{incidenteDetail.fechaHoraFinal}}</td>
 														   <td>{{incidenteDetail.calificacion}}</td>
 														   <td>{{incidenteDetail.prioridad}}</td>
@@ -52,20 +71,18 @@
 												<tbody>
 													 <tr>
 													 
-													 <td>{{incidenteDetail.coordinador}}</td>
-													 <td>{{incidenteDetail.empleado}}</td>
-													 <td>{{incidenteDetail.tecnico}}</td>
+													 <td><b>Id: </b>{{incidenteDetail.coordinador.id}}<b> Nombre: </b>{{incidenteDetail.coordinador.nombre}}</td>
+													 <td><b>Id: </b>{{incidenteDetail.empleado.id}}<b> Nombre: </b>{{incidenteDetail.empleado.nombre}}</td>
+													 <td><b>Id: </b>{{incidenteDetail.tecnico.id}}<b> Nombre: </b>{{incidenteDetail.tecnico.nombre}}</td>
 													 
 												</tr>
 
 										   </tbody>
 									  </table>
-									  <a href="/incidente/{{id}}/actuaciones"   class="btn btn-primary">Actuaciones</a>
-									  <p>     </p>
-									  <a href="/coordinador/{{incidenteDetail.coordinador}}"   class="btn btn-dark">Coordinador</a>
-									  <p>     </p>
-									  <a href="/incidentes"   class="btn btn-danger">Volver</a>
+									  
+									  
 
-		 </div>
-	</div>   
-</div>
+		    
+	</td>
+</tr>
+</table>

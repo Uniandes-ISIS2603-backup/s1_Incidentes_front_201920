@@ -14,8 +14,11 @@ import { CoordinadorTecnicosComponent } from '../coordinador/coordinador-tecnico
 import { CoordinadorIncidentesComponent } from '../coordinador/coordinador-incidentes/coordinador-incidentes.component';
 import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
 import { IncidenteDetailListComponent } from '../incidente/incidente-detail-list/incidente-detail-list.component';
+import { IncidenteCreateComponent } from '../incidente/incidente-create/incidente-create.component';
 import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from '../empleado/empleado-create/empleado-create.component';
+import { ActuacionListComponent } from '../actuacion/actuacion-list/actuacion-list.component';
+import { ActuacionCreateComponent } from '../actuacion/actuacion-create/actuacion-create.component';
 
 const routes: Routes = [
 
@@ -66,6 +69,12 @@ const routes: Routes = [
     {
         path: 'incidentes',
         component: IncidenteListComponent,
+        children: [
+            {
+                path: "create",
+                component: IncidenteCreateComponent
+            }
+        ]
     },
     {
         path: 'empleados',
@@ -74,6 +83,19 @@ const routes: Routes = [
             {
                 path: "create",
                 component: EmpleadoCreateComponent
+            }
+        ]
+    },
+    {
+        path: 'actuacion',
+        children: [
+            {
+                path: 'list',
+                component: ActuacionListComponent
+            },
+            {
+                path: "create",
+                component: ActuacionCreateComponent
             }
         ]
     },

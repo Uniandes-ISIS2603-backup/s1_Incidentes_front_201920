@@ -1,6 +1,6 @@
 
 import {Incidente} from "./incidente";
-import {Actuacion} from "./actuacion";
+import {Actuacion} from "./actuacion"; 
 
 export class IncidenteDetail extends Incidente{
 
