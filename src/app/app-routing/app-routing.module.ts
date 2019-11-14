@@ -1,7 +1,7 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule, Routes} from '@angular/router';
-import {NgxPermissionsGuard} from 'ngx-permissions';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
@@ -19,12 +19,45 @@ import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-de
 import { EmpleadoCreateComponent } from '../empleado/empleado-create/empleado-create.component';
 import { ActuacionListComponent } from '../actuacion/actuacion-list/actuacion-list.component';
 import { ActuacionCreateComponent } from '../actuacion/actuacion-create/actuacion-create.component';
+import { TecnicoListComponent } from '../tecnico/tecnico-list/tecnico-list.component';
+import { TecnicoDetailListComponent } from '../tecnico/tecnico-detail-list/tecnico-detail-list.component';
+import { TecnicoIncidentesComponent } from '../tecnico/tecnico-incidentes/tecnico-incidentes.component';
+import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
 
     {
+        path: 'tecnico',
+        children: [
+            {
+                path: "list",
+                component: TecnicoListComponent
+            },
+            {
+                path: ":id",
+                component: TecnicoDetailListComponent,
+                children: [
+                    {
+                        path: "incidentes",
+                        component: TecnicoIncidentesComponent
+                    }
+                ]
+            }
+        ]
+    },
+    {
         path: 'coordinador',
         children: [
+            {
+                path: "list",
+                component: CoordinadorListComponent,
+                children: [
+                    {
+                        path: "create",
+                        component: CoordinadorCreateComponent
+                    }
+                ]
+            },
             {
                 path: ":id",
                 component: CoordinadorDetailListComponent,
@@ -38,16 +71,6 @@ const routes: Routes = [
                         component: CoordinadorIncidentesComponent
                     }
                 ]
-            }
-        ]
-    },
-    {
-        path: 'coordinadores',
-        component: CoordinadorListComponent,
-        children: [
-            {
-                path: "create",
-                component: CoordinadorCreateComponent
             }
         ]
     },
@@ -135,6 +158,14 @@ const routes: Routes = [
     },
     {
         path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: AuthLoginComponent
+    },
+    {
+        path: 'sign-up',
         component: AuthLoginComponent
     },
     {
@@ -146,7 +177,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule],
     declarations: []

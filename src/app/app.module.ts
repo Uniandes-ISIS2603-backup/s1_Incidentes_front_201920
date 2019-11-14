@@ -14,19 +14,23 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { CoordinadorModule } from './coordinador/coordinador.module';
+import { TecnicoModule } from './tecnico/tecnico.module';
 import { IncidenteModule } from './incidente/incidente.module';
 import { EmpleadoModule } from './empleado/empleado.module';
 import { ActuacionModule } from './actuacion/actuacion.module';
 
 import { ReactiveFormsModule } from "@angular/forms";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent
     ],
     imports: [
         ReactiveFormsModule,
         CoordinadorModule,
+        TecnicoModule,
         IncidenteModule,
         EmpleadoModule,
         ActuacionModule,
