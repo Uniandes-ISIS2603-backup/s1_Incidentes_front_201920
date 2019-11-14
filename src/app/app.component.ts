@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     /**
      * The title that appears on the NavBar and the web browser
      */
-    title: String;
+    title: string;
 
     /**
      * Assigns a title to the web page
