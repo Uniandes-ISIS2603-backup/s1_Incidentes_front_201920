@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { CoordinadorDetail } from "../coordinador-detail";
 import { CoordinadorService } from "../coordinador.service";
-import { Tecnico } from '../tecnico';
+import { Tecnico } from '../../tecnico/tecnico';
 
 const btnfilterByEspecialidad: HTMLElement = document.getElementById(
   "button-filterByEspecialidad"
