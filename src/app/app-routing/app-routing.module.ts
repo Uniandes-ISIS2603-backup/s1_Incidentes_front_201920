@@ -137,36 +137,28 @@ const routes: Routes = [
             {
                 path: 'login',
                 component: AuthLoginComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
+                // canActivate: [NgxPermissionsGuard],
+                // data: {
+                //     permissions: {
+                //         only: ['GUEST']
+                //     }
+                // }
             },
             {
                 path: ':sign-up',
                 component: AuthSignUpComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
+                // canActivate: [NgxPermissionsGuard],
+                // data: {
+                //     permissions: {
+                //         only: ['GUEST']
+                //     }
+                // }
             }
         ]
     },
     {
         path: 'home',
         component: HomeComponent
-    },
-    {
-        path: 'login',
-        component: AuthLoginComponent
-    },
-    {
-        path: 'sign-up',
-        component: AuthLoginComponent
     },
     {
         path: '**',
