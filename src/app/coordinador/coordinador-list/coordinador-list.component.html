@@ -1,11 +1,22 @@
 <div class=row>
-		<a href="/coordinadores/create" class="btn btn-success">Crear Coordinador</a>
+	<div class="card-header">
+		<div class="row">
+			<div class="col-12 font-weight-bold">
+				<div style="display: flex; justify-content: space-between; align-items: center;">
+					
+					<a href="/coordinadores/create">
+						<button type="button" class="btn btn-success">Crear Coordinador</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <router-outlet></router-outlet>
 <div class=row>
-	<div *ngFor="let c of coordinadores" class="card" style="width: 18rem;">
-		<img src="https://icon-library.net/images/user-image-icon/user-image-icon-17.jpg"
-			class="card-img-top" alt="...">
+	<div *ngFor="let c of coordinadores" class="card " style="width: 9rem;">
+		<img src="https://icon-library.net/images/user-image-icon/user-image-icon-17.jpg" class="card-img-top"
+			alt="...">
 		<div class="card-body">
 			<h5 class="card-title">{{c.nombre}}</h5>
 			<a href="/coordinador/{{c.id}}" class="btn btn-primary">Ver perfil</a>

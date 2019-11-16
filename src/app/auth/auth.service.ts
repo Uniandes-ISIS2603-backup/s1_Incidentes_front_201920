@@ -22,6 +22,7 @@ export class AuthService {
         this.roleService.flushRoles();
         this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
         const role = localStorage.getItem('role');
+        console.log(role)
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
