@@ -11,12 +11,6 @@ const btnfilterByEspecialidad: HTMLElement = document.getElementById(
 const filtroEspecialidad: HTMLElement = document.getElementById(
   "filtroEspecialidad"
 );
-console.log(document);
-console.log(document.getElementById(
-  "button-filtro2"
-));
-console.log(document.getElementsByClassName("btn"));
-console.log(document.getElementsByClassName("btn").item(0) );
 // btnfilterByEspecialidad.onclick = () => filtrarPorEspecialidad();
 
 

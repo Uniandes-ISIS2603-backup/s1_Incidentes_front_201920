@@ -31,7 +31,13 @@ const routes: Routes = [
         children: [
             {
                 path: "list",
-                component: TecnicoListComponent
+                component: TecnicoListComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             },
             {
                 path: ":id",
@@ -137,22 +143,22 @@ const routes: Routes = [
             {
                 path: 'login',
                 component: AuthLoginComponent,
-                // canActivate: [NgxPermissionsGuard],
-                // data: {
-                //     permissions: {
-                //         only: ['GUEST']
-                //     }
-                // }
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
             },
             {
                 path: ':sign-up',
                 component: AuthSignUpComponent,
-                // canActivate: [NgxPermissionsGuard],
-                // data: {
-                //     permissions: {
-                //         only: ['GUEST']
-                //     }
-                // }
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
             }
         ]
     },
