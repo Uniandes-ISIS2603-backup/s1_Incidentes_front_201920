@@ -20,12 +20,16 @@ export class AuthService {
     start (): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
+        this.permissionsService.loadPermissions(['']);
         const role = localStorage.getItem('role');
         console.log(role)
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
+            this.setAdministratorRole();
+        } else if (role === 'EMPLEADO') {
+            this.setAdministratorRole();
+        } else if (role === 'TECNICO') {
             this.setAdministratorRole();
         } else {
             this.setClientRole();
@@ -43,9 +47,21 @@ export class AuthService {
         localStorage.setItem('role', 'CLIENT');
     }
 
+    setEmpleadoRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('EMPLEADO', ['']);
+        localStorage.setItem('role', 'EMPLEADO');
+    }
+
+    setTecnicoRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('TECNICO', ['']);
+        localStorage.setItem('role', 'TECNICO');
+    }
+
     setAdministratorRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
+        this.roleService.addRole('ADMIN', ['']);
         localStorage.setItem('role', 'ADMIN');
     }
 
@@ -58,8 +74,12 @@ export class AuthService {
      * @param role The desired role to set to the user
      */
     login (role): void {
-        if (role === 'Administrator') {
+        if (role === 'Coordinador') {
             this.setAdministratorRole();
+        } else if (role === 'Tecnico') {
+            this.setTecnicoRole();
+        } else if (role === 'Empleado') {
+            this.setEmpleadoRole();
         } else {
             this.setClientRole()
         }
