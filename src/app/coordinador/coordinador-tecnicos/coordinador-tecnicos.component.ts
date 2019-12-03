@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router'
 import { CoordinadorDetail } from "../coordinador-detail";
 import { CoordinadorService } from "../coordinador.service";
 import { Tecnico } from '../../tecnico/tecnico';
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-coordinador-tecnicos',
@@ -37,12 +38,16 @@ export class CoordinadorTecnicosComponent implements OnInit {
   }
 
   filtrar(): void {
-    console.log("Filtrando");
     this.getTecnicos()
-    console.log(this.tecnicos);
-    let tecnicosFiltrados: Tecnico[] = this.buscarTecnicoPorEspecialidad('HARDWARE', this.tecnicos);
-    console.log(tecnicosFiltrados);
-    this.tecnicos = tecnicosFiltrados;
+    var estado:string = (<HTMLInputElement>document.getElementById("especialidad")).value;
+    let tecnicosFiltrados:Tecnico[] = this.buscarTecnicoPorEspecialidad(estado, this.tecnicos);
+    if(estado.localeCompare('sin filtros')!=0){
+      this.tecnicos = tecnicosFiltrados;
+    }
+  }
+
+  ordenar(): void {
+    this.tecnicos = this.tecnicos.sort((a, b) => a.numCasos - b.numCasos);
   }
 
   buscarTecnicoPorEspecialidad(text: string, tecnicos: Tecnico[]): Tecnico[] {
