@@ -158,7 +158,13 @@ const routes: Routes = [
                     permissions: {
                         only: ['GUEST']
                     }
-                }
+                },
+                children: [
+                    {
+                        path: "coordinador",
+                        component: CoordinadorCreateComponent
+                    }
+                ]
             }
         ]
     },
