@@ -4,30 +4,15 @@ import { CoordinadorDetail } from "../coordinador-detail";
 import { CoordinadorService } from "../coordinador.service";
 import { Tecnico } from '../../tecnico/tecnico';
 
-const btnfilterByEspecialidad: HTMLElement = document.getElementById(
-  "button-filterByEspecialidad"
-);
-
-const filtroEspecialidad: HTMLElement = document.getElementById(
-  "filtroEspecialidad"
-);
-// btnfilterByEspecialidad.onclick = () => filtrarPorEspecialidad();
-
-
-// function filtrarPorEspecialidad(): void {
-//   console.log(btnfilterByEspecialidad);
-//   console.log(filtroEspecialidad);
-// }
-
 @Component({
   selector: 'app-coordinador-tecnicos',
   templateUrl: './coordinador-tecnicos.component.html',
   styleUrls: ['./coordinador-tecnicos.component.css']
 })
-export class CoordinadorTecnicosComponent implements OnInit { 
+export class CoordinadorTecnicosComponent implements OnInit {
 
   coordinadorDetail: CoordinadorDetail;
-
+  tecnicos: Tecnico[];
   id: number;
 
   constructor(
@@ -43,9 +28,34 @@ export class CoordinadorTecnicosComponent implements OnInit {
   }
 
   getCoordinadoreDetail(): void {
-    this.coordinadorService.getDetail(this.id).subscribe(c => this.coordinadorDetail = c);
+    this.coordinadorService.getDetail(this.id).subscribe(c => this.coordinadorDetail = c);    
+    this.coordinadorService.getDetail(this.id).subscribe(c => this.tecnicos = c.tecnicos);
   }
 
+  getTecnicos(): void {
+    this.tecnicos = this.coordinadorDetail.tecnicos;
+  }
+
+  filtrar(): void {
+    console.log("Filtrando");
+    this.getTecnicos()
+    console.log(this.tecnicos);
+    let tecnicosFiltrados: Tecnico[] = this.buscarTecnicoPorEspecialidad('HARDWARE', this.tecnicos);
+    console.log(tecnicosFiltrados);
+    this.tecnicos = tecnicosFiltrados;
+  }
+
+  buscarTecnicoPorEspecialidad(text: string, tecnicos: Tecnico[]): Tecnico[] {
+    console.log('buscando');
+    return text === ""
+    ? tecnicos
+    : tecnicos.filter(t => t.especialidad.includes(text));
+  }
+
+  verEstado(text:string):void{
+    console.log("revisando estado del filtro");
+    console.log(text);
+  }
 }
 
 
