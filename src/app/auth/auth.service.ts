@@ -79,9 +79,9 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
+    setRole (role): void {
         if (role === 'Coordinador') {
-            this.setAdministratorRole();
+            this.setCoordinadorRole();
         } else if (role === 'Tecnico') {
             this.setTecnicoRole();
         } else if (role === 'Empleado') {
@@ -102,4 +102,9 @@ export class AuthService {
         localStorage.removeItem('role');
         this.router.navigateByUrl('/');
     }
+
+    guardarId(id):void{
+        localStorage.setItem('id',""+id);
+    }
+
 }
