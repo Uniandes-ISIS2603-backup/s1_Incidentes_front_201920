@@ -3,35 +3,72 @@
         <li class="nav-item">
             <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/coordinador/list" routerLinkActive="active">Coordinadores</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/tecnico/list" routerLinkActive="active">Tecnicos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/incidentes" routerLinkActive="active">Incidentes</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/empleados" routerLinkActive="active">Empleado</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/actuacion/list" routerLinkActive="active">Actuaciones</a>
-        </li>
+
+        <div *ngIf="isAdmin()">
+            <li class="nav-item">
+                <a class="nav-link" (click)='getId()' routerLink="/coordinador/list"
+                    routerLinkActive="active">Coordinadores</a>
+            </li>
+        </div>
+
+        <div *ngIf="isAdmin()">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/tecnico/list" routerLinkActive="active">Tecnicos</a>
+            </li>
+        </div>
+
+        <div *ngIf="isAdmin()">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/incidentes" routerLinkActive="active">Incidentes</a>
+            </li>
+        </div>
+
+        <div *ngIf="isAdmin()">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/empleados" routerLinkActive="active">Empleado</a>
+            </li>
+        </div>
+
+        <div *ngIf="isAdmin()">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/actuacion/list" routerLinkActive="active">Actuaciones</a>
+            </li>
+        </div>
     </ul>
+
     <div class="navbar-collapse collapse order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
 
-                <button type="button" (click)="logout()" class="btn btn-light">Logout</button>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/auth/login" routerLinkActive="active">Login</a>
-            </li>
+
+
+            <div *ngIf="(!isCoordinador() && !isEmpleado() && !isTecnico()) || isAdmin()">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/auth/login" routerLinkActive="active">Login</a>
+                </li>
+            </div>
+
             <li class="nav-item">
                 <a class="nav-link" routerLink="/auth/sign-up" routerLinkActive="active">Sign Up</a>
             </li>
         </ul>
+
+        <div *ngIf="isCoordinador() || isEmpleado() || isTecnico() || isAdmin()">
+            <div class="dropdown pmd-dropdown pmd-user-info">
+                <a href="javascript:void(0);" class="btn-user dropdown-toggle media align-items-center"
+                    data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
+                    <img class="mr-2" src="https://pro.propeller.in/assets/images/avatar-icon-40x40.png" width="40"
+                        height="40" alt="avatar">
+                    <div class="media-body">
+                        User
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <a class="dropdown-item" routerLink="/coordinador/{{getId()}}/edit">Editar perfil</a>
+                    <a class="dropdown-item" (click)="logout()">Logout</a>
+                    <a class="dropdown-item" routerLink="/coordinador/{{getId()}}">Ver perfil</a>
+                </ul>
+            </div>
+        </div>
     </div>
 </nav>
 <router-outlet></router-outlet>

@@ -26,7 +26,6 @@ export class AuthLoginComponent implements OnInit {
         private empleadoService: EmpleadoService,
         private authService: AuthService,
         private toastrService: ToastrService,
-        private formBuilder: FormBuilder,
 
     ) {
     }
@@ -85,6 +84,7 @@ export class AuthLoginComponent implements OnInit {
                         that.authService.setRole(that.rol);
                         that.toastrService.success('Logged in');
                         that.authService.guardarId(id);
+
                     } else {
                         that.toastrService.error('Contraseña incorrecta');
                     }
