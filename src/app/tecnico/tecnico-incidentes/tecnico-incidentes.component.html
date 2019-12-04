@@ -1,3 +1,34 @@
-<p>
-  tecnico-incidentes works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10">
+      <table class="table table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th> Incidente </th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Prioridad</th>
+            <th scope="col">Calificacion</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Reabierto</th>
+            <th scope="col">Solucionado</th>
+            <th scope="col">Cerrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of tecnicoDetail.incidentes">
+            <a href="/incidente/{{i.id}}">
+              <td>{{i.id}}</td>
+            </a>
+            <td>{{i.categoria}}</td>
+            <td>{{i.prioridad}}</td>
+            <td>{{i.calificacion}}</td>
+            <td>{{i.equipo}}</td>
+            <td>{{i.reabrir}}</td>
+            <td>{{i.solucionado}}</td>
+            <td><button (click)="cerrarIncidente(i)">Cerrar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

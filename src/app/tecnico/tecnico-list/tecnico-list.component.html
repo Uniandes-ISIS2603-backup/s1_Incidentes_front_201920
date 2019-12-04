@@ -1,3 +1,10 @@
-<p>
-  tecnico-list works!
-</p>
+<div class=row>
+<div *ngFor="let c of tecnicos" class="card" style="width: 18rem;">
+	<img src="https://icon-library.net/images/user-image-icon/user-image-icon-17.jpg"
+		class="card-img-top" alt="...">
+	<div class="card-body">
+		<h5 class="card-title">{{c.username}}</h5>
+		<a href="/tecnico/{{c.id}}" class="btn btn-primary">Ver perfil</a>
+	</div>
+</div>
+</div>
