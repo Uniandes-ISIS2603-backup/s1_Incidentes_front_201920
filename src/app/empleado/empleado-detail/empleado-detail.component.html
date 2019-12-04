@@ -32,7 +32,7 @@
                 <th scope="col">Categoria</th>            
                 <th scope="col">Prioridad</th>
                 <th scope="col">Equipo</th>
-                <th scope="col">Reabierto</th>
+                <th scope="col">Confirmar cierre</th>
               </tr>
             </thead>
             <tbody>
@@ -43,8 +43,7 @@
                   <td>{{i.categoria}}</td>
                   <td>{{i.prioridad}}</td>
                   <td>{{i.equipo}}</td>
-                  <td>{{i.reabrir}}</td>
-                  
+                  <td><button (click)="calificarServcicio(i)">Calificar servicio</button> <button (click)="reabrirIncidente(i)">Reabrir</button></td>
         
                 </tr>
         

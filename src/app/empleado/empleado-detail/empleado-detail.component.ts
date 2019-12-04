@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadoService } from '../empleado.service';
-import { Empleado } from '../empleado';
+import { Incidente } from '../../incidente/incidente';
 import { EmpleadoDetail } from '../empleado-detail';
 
 @Component({
@@ -13,8 +13,7 @@ export class EmpleadoDetailComponent implements OnInit {
 
   constructor(
     private empleadoService: EmpleadoService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) { }
 
   empleadoDetail: EmpleadoDetail;
@@ -24,10 +23,16 @@ export class EmpleadoDetailComponent implements OnInit {
   ngOnInit() {
     this.empleado_id = +this.route.snapshot.paramMap.get("id");
     this.empleadoDetail = new EmpleadoDetail;
-    this.getCoordinadoreDetail();
+    this.getEmpleadoDetail();
  }
 
- getCoordinadoreDetail(): void {
+ getEmpleadoDetail(): void {
     this.empleadoService.getEmpleadoDetail(this.empleado_id).subscribe(c => this.empleadoDetail = c);
  }
+
+ reabrirIncidente(incidente:Incidente): void {
+ }
+
+ calificarServcicio(incidente:Incidente): void {
+}
 }

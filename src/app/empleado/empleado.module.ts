@@ -6,6 +6,7 @@ import { EmpleadoListComponent } from './empleado-list/empleado-list.component';
 import { EmpleadoService } from './empleado.service';
 import { EmpleadoDetailComponent } from './empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from './empleado-create/empleado-create.component';
+import { IncidenteService } from '../incidente/incidente.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { EmpleadoCreateComponent } from './empleado-create/empleado-create.compo
   ],
   declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent],
   exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent],
-  providers: [EmpleadoService]
+  providers: [EmpleadoService, IncidenteService]
 })
 export class EmpleadoModule { }
