@@ -46,7 +46,8 @@ export class AuthLoginComponent implements OnInit {
         var existe:boolean;
         var id;
         var that = this;
-        if (that.rol == 'coordinador') {
+        console.log(this.correo)
+        if (that.rol == 'Coordinador') {
             this.coordinadores.forEach(function (value) {
                 if (value.username === that.correo) {
                     id = value.id;
@@ -54,7 +55,6 @@ export class AuthLoginComponent implements OnInit {
                         that.authService.setRole(that.rol);
                         that.toastrService.success('Logged in');
                         that.authService.guardarId(id);
-                        existe=true;
                     } else {
                         that.toastrService.error('Contraseña incorrecta');
                     }
@@ -70,7 +70,6 @@ export class AuthLoginComponent implements OnInit {
                         that.authService.setRole(that.rol);
                         that.toastrService.success('Logged in');
                         that.authService.guardarId(id);
-                        existe=true;
                     } else {
                         that.toastrService.error('Contraseña incorrecta');
                     }
@@ -86,7 +85,6 @@ export class AuthLoginComponent implements OnInit {
                         that.authService.setRole(that.rol);
                         that.toastrService.success('Logged in');
                         that.authService.guardarId(id);
-                        existe=true;
                     } else {
                         that.toastrService.error('Contraseña incorrecta');
                     }
@@ -99,11 +97,9 @@ export class AuthLoginComponent implements OnInit {
     * This function will initialize the component
     */
     ngOnInit() {
-        this.roles = ['Administrador', 'Tecnico', 'Empleado'];
+        this.roles = ['Coordinador', 'Tecnico', 'Empleado'];
         this.coordinadorService.getCoordinadores().subscribe(coordinadores => this.coordinadores = coordinadores);
-        
         this.empleadoService.getEmpleados().subscribe(e => this.empleados = e);
-        
         this.coordinadorService.getCoordinadores().subscribe(coordinadores => this.coordinadores = coordinadores);
     }
 

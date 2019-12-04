@@ -100,11 +100,13 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('id');
         this.router.navigateByUrl('/');
     }
 
     guardarId(id):void{
         localStorage.setItem('id',""+id);
+        this.router.navigateByUrl('/');
     }
 
 }
