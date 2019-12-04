@@ -1,6 +1,6 @@
 export class Incidente {
     id: number;
-    fechaHoraInicial: string;
+    fechaHoraInicio: string;
     fechaHoraFinal: string;
     descripcion: string;
     observaciones: string;
@@ -10,7 +10,6 @@ export class Incidente {
     solucionado: string;
     reabrir: string;
     equipo: string;
-
     tecnico: number;
     empleado: number;
     coordinador: number;
