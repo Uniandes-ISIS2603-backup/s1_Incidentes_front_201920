@@ -25,12 +25,12 @@ export class AuthService {
         console.log(role)
         if (!role) {
             this.setGuestRole();
-        } else if (role === 'ADMIN') {
-            this.setAdministratorRole();
+        } else if (role === 'COORDINADOR') {
+            this.setCoordinadorRole();
         } else if (role === 'EMPLEADO') {
-            this.setAdministratorRole();
+            this.setEmpleadoRole();
         } else if (role === 'TECNICO') {
-            this.setAdministratorRole();
+            this.setTecnicoRole();
         } else {
             this.setClientRole();
         }
@@ -59,6 +59,12 @@ export class AuthService {
         localStorage.setItem('role', 'TECNICO');
     }
 
+    setCoordinadorRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('COORDINADOR', ['']);
+        localStorage.setItem('role', 'COORDINADOR');
+    }
+
     setAdministratorRole (): void {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['']);
@@ -73,9 +79,9 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
+    setRole (role): void {
         if (role === 'Coordinador') {
-            this.setAdministratorRole();
+            this.setCoordinadorRole();
         } else if (role === 'Tecnico') {
             this.setTecnicoRole();
         } else if (role === 'Empleado') {
@@ -83,7 +89,8 @@ export class AuthService {
         } else {
             this.setClientRole()
         }
-        this.router.navigateByUrl('/');
+        console.log('fin');
+        console.log(role);
     }
 
     /**
@@ -95,4 +102,9 @@ export class AuthService {
         localStorage.removeItem('role');
         this.router.navigateByUrl('/');
     }
+
+    guardarId(id):void{
+        localStorage.setItem('id',""+id);
+    }
+
 }

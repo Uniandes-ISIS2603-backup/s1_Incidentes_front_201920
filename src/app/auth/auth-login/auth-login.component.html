@@ -1,26 +1,44 @@
-<div class="row">
-    <div class="col-6 offset-3">
-        <br>
-        <h2 class="text-center">Login</h2>
-        <br>
-        <form name="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="username"><b>Correo</b></label>
-                <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.name" required>
+<body background-image="url('https://images2.alphacoders.com/760/thumb-1920-760463.png');">
+    <div class="card text-center mx-auto mt-5" style="width: 18rem;" >
+        <div class="card-body">
+
+            <br>
+            <h2 class="text-center">Login</h2>
+            <br>
+            <form name="login" (ngSubmit)="f.form.valid && login(rol, correo, contrasenia)" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="correo"><b>Correo</b></label>
+                    <input type="text" name="correo" class="form-control" id="correo" [(ngModel)]="correo"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="contrasenia"><b>Contraseña</b></label>
+                    <input type="text" name="contrasenia" class="form-control" id="contrasenia" [(ngModel)]="contrasenia"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="role"><b>Rol</b></label>
+                    <select class="custom-select" name="role" id="role" [(ngModel)]="rol" required>
+                        <option [value]="role" *ngFor="let role of roles">{{role}}</option>
+                    </select>
+                </div>
+                <div class="justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <div class="text-center w-full p-t-42 p-b-22">
+                <span class="txt1">
+                    Or login with
+                </span>
             </div>
-            <div class="form-group">
-                <label for="password"><b>Contraseña</b></label>
-                <input type="text" name="password" class="form-control" id="password" [(ngModel)]="user.password" required>
-            </div>
-            <div class="form-group">
-                <label for="role"><b>Rol</b></label>
-                <select class="custom-select" name="role" id="role" [(ngModel)]="user.role" required>
-                    <option [value]="role" *ngFor="let role of roles">{{role}}</option>
-                </select>
-            </div>
-            <div class="justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-        </form>
+            <a href="#" class="btn-face m-b-10">
+                <i class="fa fa-facebook-official"></i>
+                Facebook
+            </a>
+            <a href="#" class="btn-google m-b-10">
+                <img src="https://www.uao.edu.co/portal-comunicacion-publicitaria/wp-content/uploads/2019/02/google-logo-469x480.png"
+                    alt="GOOGLE" width="15px">
+                Google
+            </a>
+        </div>
     </div>
-</div>
