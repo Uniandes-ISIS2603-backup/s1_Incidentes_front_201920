@@ -32,12 +32,6 @@ const routes: Routes = [
             {
                 path: "list",
                 component: TecnicoListComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['ADMIN']
-                    }
-                }
             },
             {
                 path: ":id",
@@ -142,13 +136,7 @@ const routes: Routes = [
         children: [
             {
                 path: 'login',
-                component: AuthLoginComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
+                component: AuthLoginComponent
             },
             {
                 path: ':sign-up',
