@@ -1,3 +1,9 @@
+import { Empleado } from '../empleado/empleado';
+
+import { Tecnico } from '../tecnico/tecnico';
+
+import { Coordinador } from '../coordinador/coordinador';
+
 export class Incidente {
     id: number;
     fechaHoraInicio: string;
@@ -10,8 +16,8 @@ export class Incidente {
     solucionado: string;
     reabrir: string;
     equipo: string;
-    tecnico: number;
+    tecnico: Tecnico;
     empleado: number;
-    coordinador: number;
+    coordinador: Coordinador;
     
   } 

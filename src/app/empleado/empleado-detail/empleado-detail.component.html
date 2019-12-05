@@ -16,7 +16,7 @@
 							<li>
 								Nombre de usuario: {{empleadoDetail.username}}
               </li>
-              <a href="/incidentes/create" class="btn btn-success">Crear Incidente</a>
+              <a href="/empleado/{{empleadoDetail.id}}/incidente" class="btn btn-success">Crear Incidente</a>
 						</p>
 					</div>
 				</div>
@@ -51,6 +51,7 @@
               </tbody>
             
           </table>
+          <router-outlet></router-outlet>
         </div>
       </div>
 		</div>
