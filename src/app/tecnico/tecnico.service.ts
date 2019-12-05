@@ -34,4 +34,3 @@ export class TecnicoService {
       tap((tecnico: Tecnico) => console.log(`added tecnico w/ ${tecnico.username} id=${tecnico.id}`)));
   }
 }
-}

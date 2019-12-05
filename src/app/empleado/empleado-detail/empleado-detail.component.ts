@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadoService } from '../empleado.service';
-import { Incidente } from '../../incidente/incidente';
 import { EmpleadoDetail } from '../empleado-detail';
 
 @Component({
@@ -29,10 +28,4 @@ export class EmpleadoDetailComponent implements OnInit {
  getEmpleadoDetail(): void {
     this.empleadoService.getEmpleadoDetail(this.empleado_id).subscribe(c => this.empleadoDetail = c);
  }
-
- reabrirIncidente(incidente:Incidente): void {
- }
-
- calificarServcicio(incidente:Incidente): void {
-}
 }

@@ -44,7 +44,7 @@
                   <td>{{i.categoria}}</td>
                   <td>{{i.prioridad}}</td>
                   <td>{{i.equipo}}</td>
-                  <td><button (click)="calificarServcicio(i)">Calificar servicio</button> <button (click)="reabrirIncidente(i)">Reabrir</button></td>
+                  <td><app-empleado-calificar [incidente]="i" [idEmpleado]="empleado_id"></app-empleado-calificar><app-empleado-reabrir [incidente]="i" [idEmpleado]="empleado_id"></app-empleado-reabrir></td>
         
                 </tr>
         

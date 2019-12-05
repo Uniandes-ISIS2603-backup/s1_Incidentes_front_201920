@@ -26,4 +26,8 @@ export class IncidenteService {
     return this.http.post<Incidente>(API_URL+ "/incidentes", incidente).pipe(
       tap((incidente: Incidente) => console.log(`added incidente w/ ${incidente.descripcion} id=${incidente.observaciones}`)));
   }
+
+  updateIncidente(incidente: Incidente): Observable<IncidenteDetail> {
+    return this.http.put<IncidenteDetail>(API_URL + incidentes + '/' + incidente.id, incidente);
+}
 }

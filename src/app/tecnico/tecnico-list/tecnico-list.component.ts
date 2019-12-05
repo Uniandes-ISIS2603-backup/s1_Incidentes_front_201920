@@ -20,10 +20,6 @@ export class TecnicoListComponent implements OnInit {
      */
     tecnicos: Tecnico[];
 
-  tecnicos: Tecnico[];
-
-  constructor(private tecnicoService: TecnicoService) { }
-
   ngOnInit() {
     this.getTecnicos();
  }
