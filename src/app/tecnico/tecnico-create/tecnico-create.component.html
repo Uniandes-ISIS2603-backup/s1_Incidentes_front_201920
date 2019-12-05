@@ -1,0 +1,52 @@
+<form [formGroup]="tecnicoForm" (ngSubmit)="createCoordinador(tecnicoForm.value)">
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="nombre">
+      Name
+    </label>
+    <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Your Full Name">
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="tecnicoForm.get('nombre').hasError('required') && 
+      tecnicoForm.get('nombre').touched">
+      Name required
+    </div>
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="username">
+      Username
+    </label>
+    <input id="username" type="text" class="form-control" formControlName="username" placeholder="@gmail.com">
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="tecnicoForm.get('username').hasError('required') && 
+      tecnicoForm.get('username').touched">
+      Username required
+    </div>
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="password">
+      password
+    </label>
+    <input id="password" type="text" class="form-control" formControlName="password" placeholder="Your password">
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="tecnicoForm.get('password').hasError('required') && 
+      tecnicoForm.get('password').touched">
+      Password required
+    </div>
+  </div>
+
+  <div class="form-group  mx-sm-3 mb-2">
+    <label for="especialidad">
+      Especialidad
+    </label>
+    <input id="especialidad" type="text" class="form-control" formControlName="especialidad"
+      placeholder=" especialidad">
+    <div class="alert alert-danger alert-dismissible fade show" *ngIf="tecnicoForm.get('password').hasError('required') && 
+        tecnicoForm.get('password').touched">
+      especialidad required
+    </div>
+  </div>
+
+  <button class="button mx-sm-3 mb-2" type="submit" [disabled]="tecnicoForm.invalid">Create</button>
+
+  <input type="button" class="btn btn-outline-danger" value="Cancelar" onclick="history.back()">
+
+</form>

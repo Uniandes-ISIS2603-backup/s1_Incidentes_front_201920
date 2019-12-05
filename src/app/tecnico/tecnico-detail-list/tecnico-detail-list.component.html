@@ -7,12 +7,25 @@
 						class="card-img-top" alt="...">
 					<div class="card-body">
 						<h4 class="card-title">
-							Informacion del tecnico:
+							Informacion del Tecnico:
 						</h4>
 						<p class="card-text">
 							<li>
-								Nombre de usuario: {{tecnicoDetail.username}}
+								UserName: {{tecnicoDetail.username}}
 							</li>
+							<li>
+								Contraseña: {{tecnicoDetail.password}}
+              </li>
+              <li>
+								Número de casos: {{tecnicoDetail.numCasos}}
+              </li>
+              <li>
+								Especialidad: {{tecnicoDetail.especialidad}}
+              </li>
+              <br>
+              <a  class="btn btn-outline-success" routerLink="/coordinador/{{tecnicoDetail.coordinador.id}}"
+							routerLinkActive="active">Coordinador</a>           
+					
 						</p>
 					</div>
 				</div>

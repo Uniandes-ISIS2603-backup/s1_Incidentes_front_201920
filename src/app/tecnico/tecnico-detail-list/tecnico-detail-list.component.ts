@@ -5,7 +5,7 @@ import { TecnicoService } from "../tecnico.service";
 
 
 @Component({
-  selector: 'app-tecnico-detail-list',
+  selector: 'tecnico-detail-list',
   templateUrl: './tecnico-detail-list.component.html',
   styleUrls: ['./tecnico-detail-list.component.css']
 })
@@ -13,21 +13,22 @@ export class TecnicoDetailListComponent implements OnInit {
 
   tecnicoDetail: TecnicoDetail;
 
-   id: number;
+  id: number;
+  
+  constructor(
+    private tecnicoService: TecnicoService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { }
 
-   constructor(
-      private tecnicoService: TecnicoService,
-      private route: ActivatedRoute,
-      private router: Router,
-   ) { }
+  ngOnInit() {
+    this.id = +this.route.snapshot.paramMap.get("id");
+    this.tecnicoDetail = new TecnicoDetail;
+    this.getTecnicoDetail();
+ }
 
-   ngOnInit() {
-      this.id = +this.route.snapshot.paramMap.get("id");
-      this.tecnicoDetail = new TecnicoDetail;
-      this.gettecnicoDetail();
-   }
+ getTecnicoDetail(): void {
+    this.tecnicoService.getDetail(this.id).subscribe(c => this.tecnicoDetail = c);
+ }
 
-   gettecnicoDetail(): void {
-      this.tecnicoService.getTecnicoDetail(this.id).subscribe(c => this.tecnicoDetail = c);
-   }
 }

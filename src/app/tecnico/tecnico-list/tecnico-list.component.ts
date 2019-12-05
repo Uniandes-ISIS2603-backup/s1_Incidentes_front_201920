@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Tecnico } from '../tecnico';
-import { TecnicoService } from '../tecnico.service';
+import { Tecnico } from "../tecnico";
+import { TecnicoService } from "../tecnico.service";
 
 @Component({
-  selector: 'app-tecnico-list',
+  selector: 'tecnico-list',
   templateUrl: './tecnico-list.component.html',
   styleUrls: ['./tecnico-list.component.css']
 })
@@ -21,18 +20,16 @@ export class TecnicoListComponent implements OnInit {
      */
     tecnicos: Tecnico[];
 
-    /**
-     * Asks the service to update the list of tecnicos
-     */
-    getTecnicos(): void {
-        this.tecnicoService.getTecnicos().subscribe(tecnicos => this.tecnicos = tecnicos);
-    }
+  tecnicos: Tecnico[];
 
-    /**
-     * This will initialize the component by retrieving the list of tecnicos from the service
-     * This method will be called when the component is created
-     */
-    ngOnInit() {
-        this.getTecnicos();
-    }
+  constructor(private tecnicoService: TecnicoService) { }
+
+  ngOnInit() {
+    this.getTecnicos();
+ }
+
+ getTecnicos(): void {
+       this.tecnicoService.getTecnicos().subscribe(tecnicos => this.tecnicos = tecnicos);
+   }
+
 }

@@ -3,5 +3,6 @@ export class Tecnico {
   username: string;
   password:string;
   numCasos:number;
-  especialidad:string;
+  especialidad:string; 
+  coordinador: number;
 }

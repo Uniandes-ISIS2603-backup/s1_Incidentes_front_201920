@@ -1,6 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-10">
+      <p (click)="filtrarPorEspecialidad()" class="importante"> <u>
+          Ver incidentes nuevos.
+        </u></p>
       <table class="table table-striped">
         <thead class="thead-light">
           <tr>
@@ -9,11 +12,11 @@
             <th scope="col">Prioridad</th>
             <th scope="col">Calificacion</th>
             <th scope="col">Equipo</th>
-            <th scope="col">Reabierto</th>
+            <th scope="col">Abierto</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let i of coordinadorDetail.incidentes">
+          <tr *ngFor="let i of incidentes">
             <a href="/incidente/{{i.id}}">
               <td>{{i.id}}</td>
             </a>
@@ -21,7 +24,7 @@
             <td>{{i.prioridad}}</td>
             <td>{{i.calificacion}}</td>
             <td>{{i.equipo}}</td>
-            <td>{{i.reabrir}}</td>
+            <td>{{i.solucionado}}</td>
           </tr>
         </tbody>
       </table>
@@ -33,13 +36,14 @@
         </h5>
         <select name="typelist" id="filtroEspecialidad" form="typeform">
           <option value="HARDWARE">HARDWARE</option>
-          <option value="SW_SO ">SW_SO </option>
-          <option value="SW_AD">SW_AD</option>
+          <option value="SW_SO">SW_SO</option>
+          <option value="SW_SA">SW_SA</option>
+          <option value="sin filtros">sin filtros</option>
         </select>
       </div>
       <br>
       <div class="row">
-        <button type="button" id="button-filterByEspecialidad" class="btn btn-info">Aplicar Filtro </button>
+        <button type="button" (click)="filtrarPorEspecialidad()" class="btn btn-info">Aplicar Filtro </button>
       </div>
       <br>
       <div class="row">
@@ -54,7 +58,16 @@
       </div>
       <br>
       <div class="row">
-        <button type="button" id="button-filterByEspecialidad" class="btn btn-info">Aplicar Filtro </button>
+        <button type="button" class="btn btn-info">Aplicar Filtro </button>
+      </div>
+      <div class="row">
+        <br>
+        <h5>
+          Ordenar por Calificacion
+        </h5>
+      </div>
+      <div class="row">
+        <button type="button" (click)="ordenar()" class="btn btn-info">Ordenar</button>
       </div>
     </div>
   </div>

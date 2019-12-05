@@ -23,6 +23,7 @@ import { TecnicoListComponent } from '../tecnico/tecnico-list/tecnico-list.compo
 import { TecnicoDetailListComponent } from '../tecnico/tecnico-detail-list/tecnico-detail-list.component';
 import { TecnicoIncidentesComponent } from '../tecnico/tecnico-incidentes/tecnico-incidentes.component';
 import { HomeComponent } from '../home/home.component';
+import { TecnicoCreateComponent } from '../tecnico/tecnico-create/tecnico-create.component';
 
 const routes: Routes = [
 
@@ -32,12 +33,6 @@ const routes: Routes = [
             {
                 path: "list",
                 component: TecnicoListComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['ADMIN']
-                    }
-                }
             },
             {
                 path: ":id",
@@ -142,13 +137,7 @@ const routes: Routes = [
         children: [
             {
                 path: 'login',
-                component: AuthLoginComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
+                component: AuthLoginComponent
             },
             {
                 path: ':sign-up',
@@ -160,7 +149,7 @@ const routes: Routes = [
                     },
                     {
                         path: "Tecnico",
-                        component: CoordinadorCreateComponent
+                        component: TecnicoCreateComponent
                     },
                     {
                         path: "Empleado",
