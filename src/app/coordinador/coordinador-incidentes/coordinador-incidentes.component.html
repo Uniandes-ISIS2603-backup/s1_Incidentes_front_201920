@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let i of coordinadorDetail.incidentes">
+          <tr *ngFor="let i of incidentes">
             <a href="/incidente/{{i.id}}">
               <td>{{i.id}}</td>
             </a>
@@ -33,13 +33,14 @@
         </h5>
         <select name="typelist" id="filtroEspecialidad" form="typeform">
           <option value="HARDWARE">HARDWARE</option>
-          <option value="SW_SO ">SW_SO </option>
-          <option value="SW_AD">SW_AD</option>
+          <option value="SW_SO">SW_SO</option>
+          <option value="SW_SA">SW_SA</option>
+          <option value="sin filtros">sin filtros</option>
         </select>
       </div>
       <br>
       <div class="row">
-        <button type="button" id="button-filterByEspecialidad" class="btn btn-info">Aplicar Filtro </button>
+        <button type="button" (click)="filtrarPorEspecialidad()" class="btn btn-info">Aplicar Filtro </button>
       </div>
       <br>
       <div class="row">
@@ -54,7 +55,16 @@
       </div>
       <br>
       <div class="row">
-        <button type="button" id="button-filterByEspecialidad" class="btn btn-info">Aplicar Filtro </button>
+        <button type="button" class="btn btn-info">Aplicar Filtro </button>
+      </div>
+      <div class="row">
+        <br>
+        <h5>
+          Ordenar por Calificacion
+        </h5>
+      </div>
+      <div class="row">
+        <button type="button" (click)="ordenar()" class="btn btn-info">Ordenar</button>
       </div>
     </div>
   </div>

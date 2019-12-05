@@ -1,3 +1,63 @@
-<p>
-  tecnico-incidentes works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10">
+      <table class="table table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th> Incidente </th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Prioridad</th>
+            <th scope="col">Calificacion</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Reabierto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of tecnicoDetail.incidentes">
+            <a href="/incidente/{{i.id}}">
+              <td>{{i.id}}</td>
+            </a>
+            <td>{{i.categoria}}</td>
+            <td>{{i.prioridad}}</td>
+            <td>{{i.calificacion}}</td>
+            <td>{{i.equipo}}</td>
+            <td>{{i.reabrir}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <a  class="btn btn-outline-danger" routerLink="/tecnico/{{tecnicoDetail.id}}"
+							routerLinkActive="active">Ocultar</a>   
+    </div>
+    <div class="col">
+      <div class="row">
+        <h5>
+          Filtrar por categoria
+        </h5>
+        <select name="typelist" id="filtroEspecialidad" form="typeform">
+          <option value="HARDWARE">HARDWARE</option>
+          <option value="SW_SO ">SW_SO </option>
+          <option value="SW_AD">SW_AD</option>
+        </select>
+      </div>
+      <br>
+      <div class="row">
+        <button type="button" id="button-filterByEspecialidad" class="btn btn-info">Aplicar Filtro </button>
+      </div>
+      <br>
+      <div class="row">
+        <h5>
+          Filtrar por prioridad
+        </h5>
+        <select name="typelist" id="filtroEspecialidad" form="typeform">
+          <option value="alta">alta</option>
+          <option value="media ">media </option>
+          <option value="baja">baja</option>
+        </select>
+      </div>
+      <br>
+      <div class="row">
+        <button type="button" id="button-filterByEspecialidad" class="btn btn-info">Aplicar Filtro </button>
+      </div>
+    </div>
+  </div>
+</div>
