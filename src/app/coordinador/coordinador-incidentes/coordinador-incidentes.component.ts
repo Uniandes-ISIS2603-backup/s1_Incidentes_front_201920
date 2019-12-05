@@ -45,6 +45,15 @@ export class CoordinadorIncidentesComponent implements OnInit {
     }
   }
 
+  filtrarPorPrioridad(): void {
+    this.getIncidentes();
+    var estado: string = (<HTMLInputElement>document.getElementById("filtroPrioridad")).value;
+    let incidentesFiltrados: Incidente[] = this.buscarIncidentePorPrioridad(estado, this.incidentes);
+    if (estado.localeCompare('sin filtros') != 0) {
+      this.incidentes = incidentesFiltrados;
+    }
+  }
+
   ordenar(): void {
     this.incidentes = this.incidentes.sort((a, b) => b.calificacion - a.calificacion);
   }
@@ -54,6 +63,13 @@ export class CoordinadorIncidentesComponent implements OnInit {
       ? incidentes
       : incidentes.filter(i => i.categoria.includes(text));
   }
+  
+  buscarIncidentePorPrioridad(text: string, incidentes: Incidente[]): Incidente[] {
+    return text === ""
+      ? incidentes
+      : incidentes.filter(i => i.prioridad.includes(text));
+  }
+  
 
   verEstado(text: string): void {
     console.log("revisando estado del filtro");
