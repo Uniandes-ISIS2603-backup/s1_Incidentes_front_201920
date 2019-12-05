@@ -11,9 +11,14 @@ const API_URL = environment.apiURL;
 const incidentes = "/incidentes";
 @Injectable({ providedIn: "root" })
 export class IncidenteService { 
-
+  emp: number;
   constructor(private http: HttpClient) { }
-
+  setEmp(num:number){
+    this.emp=num;
+  }
+  getEmp(){
+    return this.emp;
+  }
   getIncidentes(): Observable<Incidente[]> {
     return this.http.get<Incidente[]>(API_URL + incidentes);
   }

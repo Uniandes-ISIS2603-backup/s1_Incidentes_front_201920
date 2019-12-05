@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadoService } from '../empleado.service';
+import { IncidenteService } from '../../incidente/incidente.service';
 import { Empleado } from '../empleado';
 import { EmpleadoDetail } from '../empleado-detail';
 
@@ -12,19 +13,23 @@ import { EmpleadoDetail } from '../empleado-detail';
 export class EmpleadoDetailComponent implements OnInit {
 
   constructor(
+    private incidenteService: IncidenteService,
     private empleadoService: EmpleadoService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
-
+  
   empleadoDetail: EmpleadoDetail;
 
   @Input() empleado_id: number;
-
+  
   ngOnInit() {
     this.empleado_id = +this.route.snapshot.paramMap.get("id");
     this.empleadoDetail = new EmpleadoDetail;
     this.getCoordinadoreDetail();
+ }
+ util():void{
+   this.incidenteService.setEmp(this.empleado_id);
  }
 
  getCoordinadoreDetail(): void {

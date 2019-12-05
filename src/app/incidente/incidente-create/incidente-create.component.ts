@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IncidenteService } from '../incidente.service';
 import { Incidente } from '../incidente';
 import { ToastrService } from "ngx-toastr";
+import { Coordinador } from '../../coordinador/coordinador'
+import { EmpleadoDetail } from '../../empleado/empleado-detail'
 
 @Component({
   selector: 'app-incidente-create',
@@ -11,8 +13,9 @@ import { ToastrService } from "ngx-toastr";
 })
 export class IncidenteCreateComponent implements OnInit {
     
+    
     incidenteForm: FormGroup;
-    incidentes: Incidente[];
+    incidentes: Incidente[]; 
     
     constructor(
                 private IncidenteService: IncidenteService,
@@ -31,7 +34,7 @@ export class IncidenteCreateComponent implements OnInit {
                 );
             
       }
-    createIncidente(newIncidente: Incidente) {
+    createIncidente(newIncidente: Incidente,coordinador: Coordinador) {
         
         newIncidente.solucionado='0';
         newIncidente.reabrir='0';
@@ -39,7 +42,10 @@ export class IncidenteCreateComponent implements OnInit {
         newIncidente.fechaHoraInicio=new Date().toISOString();
         newIncidente.prioridad='No asignada';
         newIncidente.calificacion=0;
-
+        console.log(this.IncidenteService.getEmp());
+        newIncidente.empleado=120;
+        
+        
         console.warn("el incidente fue creado", newIncidente);
         this.IncidenteService.createIncidente(newIncidente).subscribe(c => {
             this.incidentes.push(c);
