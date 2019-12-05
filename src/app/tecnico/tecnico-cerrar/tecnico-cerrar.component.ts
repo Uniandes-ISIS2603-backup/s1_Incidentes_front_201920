@@ -24,15 +24,15 @@ export class TecnicoCerrarComponent implements OnInit {
   ngOnInit() {
     console.log(this.incidente.id);
     console.log(this.incidente.solucionado);
-    if(this.incidente.solucionado=="false"){
-      this.mostrar=false;
-    } else {
+    if(this.incidente.solucionado=='false'){
       this.mostrar=true;
+    } else {
+      this.mostrar=false;
     }
   }
 
   cerrar(){
-    if(this.mostrar==false){
+    if(this.mostrar==true){
       this.incidente.solucionado='true';
       this.servcie.updateIncidente(this.incidente).subscribe(() => {
         this.router.navigate(['/tecnico/']);

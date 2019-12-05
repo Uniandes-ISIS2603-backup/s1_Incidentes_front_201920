@@ -29,7 +29,7 @@ export class EmpleadoCalificarComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    if(this.incidente.solucionado=='false'){
+    if("false".localeCompare(this.incidente.solucionado)==0){
       this.mostrar=false;
     } else {
       this.mostrar=true;
@@ -37,7 +37,7 @@ export class EmpleadoCalificarComponent implements OnInit {
   }
 
   calificar(){
-    if(this.mostrar==true){
+    if(this.mostrar){
       this.incidente.calificacion=this.calificacion;
       this.show = !this.show;
       this.servcie.updateIncidente(this.incidente).subscribe(() => {

@@ -25,9 +25,7 @@ export class EmpleadoReabrirComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.incidente.id);
-    console.log(this.incidente.solucionado);
-    if(this.incidente.solucionado=="false"){
+    if("false".localeCompare(this.incidente.solucionado)==0){
       this.mostrar=false;
     } else {
       this.mostrar=true;
@@ -35,7 +33,7 @@ export class EmpleadoReabrirComponent implements OnInit {
   }
 
   reabrir(){
-    if(this.mostrar==true){
+    if(this.mostrar){
       this.incidente.reabrir='true';
       this.servcie.updateIncidente(this.incidente).subscribe(() => {
         this.router.navigate(['/empleado/' + this.idEmpleado]);
