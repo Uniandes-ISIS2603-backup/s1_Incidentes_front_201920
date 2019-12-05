@@ -17,7 +17,10 @@
 									  
 									  <a href="/tecnico/{{incidenteDetail.tecnico.id}}"   class="btn btn-outline-dark">Tecnico</a>
 									  <p>     </p>
-									  <a href="/incidentes"   class="btn btn-outline-danger">Volver</a>
+
+									  <a (click)="onSelected()"   class="btn btn-outline-dark">actuaciones</a>
+									  <p>     </p>
+									  <a href="/incidentes/"   class="btn btn-outline-danger">Volver</a>
 													 </div>
 													 </div>
 													 
@@ -79,6 +82,9 @@
 
 										   </tbody>
 									  </table>
+									  <div *ngIf="showActuaciones" class="m-3 p-3">
+										<app-actuacion-list> [incidente]="incidenteDetail"> </app-actuacion-list>
+									</div>
 									  
 									  
 

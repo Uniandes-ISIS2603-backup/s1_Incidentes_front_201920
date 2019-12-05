@@ -67,7 +67,16 @@ const routes: Routes = [
                 children: [
                     {
                         path: "actuaciones",
-                        component: IncidenteDetailListComponent
+                        children: [
+                            {
+                                path: 'list',
+                                component: ActuacionListComponent
+                            },
+                            {
+                                path: "create",
+                                component: ActuacionCreateComponent
+                            }
+                        ]
                     }
                 ]
             }

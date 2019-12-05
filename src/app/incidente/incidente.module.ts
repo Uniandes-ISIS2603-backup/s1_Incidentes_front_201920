@@ -6,15 +6,17 @@ import { IncidenteDetailListComponent } from './incidente-detail-list/incidente-
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { IncidenteCreateComponent } from './incidente-create/incidente-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ActuacionListComponent } from '../actuacion/actuacion-list/actuacion-list.component';
+import { ActuacionCreateComponent } from '../actuacion/actuacion-create/actuacion-create.component';
 @NgModule({ 
   imports: [
 
   
     CommonModule,AppRoutingModule, ReactiveFormsModule,
   ],
-  declarations: [IncidenteListComponent, IncidenteDetailListComponent,IncidenteCreateComponent
+  declarations: [IncidenteListComponent, IncidenteDetailListComponent,IncidenteCreateComponent, ActuacionListComponent, ActuacionCreateComponent
   ],
-  exports : [IncidenteListComponent, IncidenteDetailListComponent,IncidenteCreateComponent],
+  exports : [IncidenteListComponent, IncidenteDetailListComponent,IncidenteCreateComponent, ActuacionListComponent, ActuacionCreateComponent],
   providers: [IncidenteService]
 })
 export class IncidenteModule {}

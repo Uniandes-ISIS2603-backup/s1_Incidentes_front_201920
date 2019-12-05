@@ -12,6 +12,7 @@ export class IncidenteDetailListComponent implements OnInit {
    
    incidenteDetail: IncidenteDetail;
    id:number;
+   showActuaciones: boolean;  
 
   constructor(
    private incidenteService: IncidenteService,
@@ -22,9 +23,14 @@ export class IncidenteDetailListComponent implements OnInit {
    this.id = +this.route.snapshot.paramMap.get("id");
    this.incidenteDetail = new IncidenteDetail;
      this.getIncidentesDetail();
+    this.showActuaciones = false;
   }
 
   getIncidentesDetail(): void {
    this.incidenteService.getIncidentesDetail(this.id).subscribe(i => this.incidenteDetail = i);
 }
+
+  onSelected(filmId: number): void {
+    this.showActuaciones = true;
+  }
 }

@@ -29,7 +29,6 @@ import { ReactiveFormsModule } from "@angular/forms";
         CoordinadorModule,
         IncidenteModule,
         EmpleadoModule,
-        ActuacionModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
