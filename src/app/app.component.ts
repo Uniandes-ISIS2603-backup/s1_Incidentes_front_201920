@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
      */
     title: string;
 
+    id:string;
+
     /**
      * Assigns a title to the web page
      */
@@ -32,6 +34,26 @@ export class AppComponent implements OnInit {
 
     logout(): void {
         this.authService.logout()
+    }
+
+    isCoordinador():boolean{
+        return localStorage.getItem("role") == "COORDINADOR";
+    }
+
+    isTecnico():boolean{
+        return localStorage.getItem("role") == "TECNICO";
+    }
+
+    isEmpleado():boolean{
+        return localStorage.getItem("role") == "EMPLEADO";
+    }
+
+    isAdmin():boolean{
+        return localStorage.getItem("role") == "ADMIN";
+    }
+
+    getId():string{
+        return localStorage.getItem('id');
     }
 
 }

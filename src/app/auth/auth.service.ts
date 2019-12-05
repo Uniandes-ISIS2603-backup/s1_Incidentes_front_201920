@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
-import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 
 /**
@@ -15,16 +15,21 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+    constructor(private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
 
-    start (): void {
+    start(): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
+        this.permissionsService.loadPermissions(['']);
         const role = localStorage.getItem('role');
-        console.log(role)
         if (!role) {
             this.setGuestRole();
+        } else if (role === 'COORDINADOR') {
+            this.setCoordinadorRole();
+        } else if (role === 'EMPLEADO') {
+            this.setEmpleadoRole();
+        } else if (role === 'TECNICO') {
+            this.setTecnicoRole();
         } else if (role === 'ADMIN') {
             this.setAdministratorRole();
         } else {
@@ -32,24 +37,42 @@ export class AuthService {
         }
     }
 
-    setGuestRole (): void {
+    setGuestRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setClientRole (): void {
+    setClientRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('CLIENT', ['leave_review']);
         localStorage.setItem('role', 'CLIENT');
     }
 
-    setAdministratorRole (): void {
+    setEmpleadoRole(): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
+        this.roleService.addRole('EMPLEADO', ['']);
+        localStorage.setItem('role', 'EMPLEADO');
+    }
+
+    setTecnicoRole(): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('TECNICO', ['']);
+        localStorage.setItem('role', 'TECNICO');
+    }
+
+    setCoordinadorRole(): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('COORDINADOR', ['']);
+        localStorage.setItem('role', 'COORDINADOR');
+    }
+
+    setAdministratorRole(): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('ADMIN', ['']);
         localStorage.setItem('role', 'ADMIN');
     }
 
-    printRole (): void {
+    printRole(): void {
         console.log(this.roleService.getRoles());
     }
 
@@ -57,22 +80,34 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
-        if (role === 'Administrator') {
+    setRole(role): void {
+        if (role === 'Coordinador') {
+            this.setCoordinadorRole();
+        } else if (role === 'Tecnico') {
+            this.setTecnicoRole();
+        } else if (role === 'Empleado') {
+            this.setEmpleadoRole();
+        } else if (role === 'Administrador') {
             this.setAdministratorRole();
         } else {
             this.setClientRole()
         }
-        this.router.navigateByUrl('/');
     }
 
     /**
      * Logs the user out
      */
-    logout (): void {
+    logout(): void {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('id');
         this.router.navigateByUrl('/');
     }
+
+    guardarId(id): void {
+        localStorage.setItem('id', "" + id);
+        this.router.navigateByUrl('/');
+    }
+
 }

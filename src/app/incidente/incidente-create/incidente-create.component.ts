@@ -12,7 +12,6 @@ import { ToastrService } from "ngx-toastr";
 export class IncidenteCreateComponent implements OnInit {
     
     incidenteForm: FormGroup;
-    incidenteService: IncidenteService;
     incidentes: Incidente[];
     
     constructor(
@@ -22,31 +21,32 @@ export class IncidenteCreateComponent implements OnInit {
                 ) 
                 {
                     this.incidenteForm = this.formBuilder.group({
-                    fechaHoraInicio: ["", [Validators.required, Validators.minLength(1)]],
-                    fechaHoraFinal: ["", [Validators.required, Validators.minLength(1)]],
                     descripcion: ["", [Validators.required, Validators.minLength(1)]],
-                    observaciones: ["", [Validators.required, Validators.minLength(1)]],
-                    calificacion: ["", [Validators.required, Validators.minLength(1)]],
+                   
                     categoria: ["", [Validators.required, Validators.minLength(1)]],
-                    prioridad: ["", [Validators.required, Validators.minLength(1)]],
-                    solucionado: ["", [Validators.required, Validators.minLength(1)]],
-                    reabrir: ["", [Validators.required, Validators.minLength(1)]],
-                    equipo: ["", [Validators.required, Validators.minLength(1)]],
                     
-
+                    equipo: ["", [Validators.required, Validators.minLength(1)]],
                 }
                 
                 );
             
       }
     createIncidente(newIncidente: Incidente) {
+        
+        newIncidente.solucionado='0';
+        newIncidente.reabrir='0';
+        newIncidente.observaciones='Aun no hay';
+        newIncidente.fechaHoraInicio=new Date().toISOString();
+        newIncidente.prioridad='No asignada';
+        newIncidente.calificacion=0;
+
         console.warn("el incidente fue creado", newIncidente);
-    
         this.IncidenteService.createIncidente(newIncidente).subscribe(c => {
             this.incidentes.push(c);
             this.showSuccess();
             });
         this.incidenteForm.reset();
+
     }
     showSuccess() {
         for (let i = 0; i < this.incidentes.length; i++){
