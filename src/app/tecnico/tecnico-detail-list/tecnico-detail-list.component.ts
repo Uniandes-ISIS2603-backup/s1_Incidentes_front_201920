@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TecnicoDetail } from "../tecnico-detail";
 import { TecnicoService } from "../tecnico.service";
 
+
 @Component({
   selector: 'tecnico-detail-list',
   templateUrl: './tecnico-detail-list.component.html',

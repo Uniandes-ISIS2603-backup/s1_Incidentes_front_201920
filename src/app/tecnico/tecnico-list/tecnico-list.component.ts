@@ -7,11 +7,18 @@ import { TecnicoService } from "../tecnico.service";
   templateUrl: './tecnico-list.component.html',
   styleUrls: ['./tecnico-list.component.css']
 })
+
 export class TecnicoListComponent implements OnInit {
-
-  tecnicos: Tecnico[];
-
-  constructor(private tecnicoService: TecnicoService) { }
+ /**
+     * Constructor for the component
+     * @param tecnicoService 
+     */
+    constructor(private tecnicoService: TecnicoService) { }
+    
+    /**
+     * The list of tecnicos
+     */
+    tecnicos: Tecnico[];
 
   ngOnInit() {
     this.getTecnicos();

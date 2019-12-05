@@ -46,4 +46,8 @@ export class IncidenteService {
   }
 
 
+
+  updateIncidente(incidente: Incidente): Observable<IncidenteDetail> {
+    return this.http.put<IncidenteDetail>(API_URL + incidentes + '/' + incidente.id, incidente);
+}
 }

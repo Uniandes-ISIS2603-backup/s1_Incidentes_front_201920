@@ -15,8 +15,7 @@ export class EmpleadoDetailComponent implements OnInit {
   constructor(
     private incidenteService: IncidenteService,
     private empleadoService: EmpleadoService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) { }
   
   empleadoDetail: EmpleadoDetail;
@@ -26,13 +25,13 @@ export class EmpleadoDetailComponent implements OnInit {
   ngOnInit() {
     this.empleado_id = +this.route.snapshot.paramMap.get("id");
     this.empleadoDetail = new EmpleadoDetail;
-    this.getCoordinadoreDetail();
+    this.getEmpleadoDetail();
  }
  util():void{
    this.incidenteService.setEmp(this.empleado_id);
  }
 
- getCoordinadoreDetail(): void {
+ getEmpleadoDetail(): void {
     this.empleadoService.getEmpleadoDetail(this.empleado_id).subscribe(c => this.empleadoDetail = c);
  }
 }

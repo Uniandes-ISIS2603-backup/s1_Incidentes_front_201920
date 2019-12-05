@@ -6,6 +6,9 @@ import { EmpleadoListComponent } from './empleado-list/empleado-list.component';
 import { EmpleadoService } from './empleado.service';
 import { EmpleadoDetailComponent } from './empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from './empleado-create/empleado-create.component';
+import { EmpleadoReabrirComponent } from "./empleado-reabrir/empleado-reabrir.component";
+import { EmpleadoCalificarComponent } from "./empleado-calificar/empleado-calificar.component";
+import { IncidenteService } from '../incidente/incidente.service';
 
 @NgModule({
   imports: [
@@ -13,8 +16,8 @@ import { EmpleadoCreateComponent } from './empleado-create/empleado-create.compo
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent],
-  exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent],
-  providers: [EmpleadoService]
+  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent, EmpleadoReabrirComponent, EmpleadoCalificarComponent],
+  exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent, EmpleadoReabrirComponent, EmpleadoCalificarComponent],
+  providers: [EmpleadoService, IncidenteService]
 })
 export class EmpleadoModule { }
