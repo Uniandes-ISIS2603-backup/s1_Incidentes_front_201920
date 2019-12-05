@@ -19,6 +19,7 @@ import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-de
 import { EmpleadoCreateComponent } from '../empleado/empleado-create/empleado-create.component';
 import { ActuacionListComponent } from '../actuacion/actuacion-list/actuacion-list.component';
 import { ActuacionCreateComponent } from '../actuacion/actuacion-create/actuacion-create.component';
+import { CoordinadorAssignTecnicoComponent } from '../coordinador/coordinador-assign-tecnico/coordinador-assign-tecnico.component';
 
 const routes: Routes = [
 
@@ -35,7 +36,13 @@ const routes: Routes = [
                     },
                     {
                         path: "incidentes",
-                        component: CoordinadorIncidentesComponent
+                        component: CoordinadorIncidentesComponent,
+                        children: [
+                            {
+                                path: "asignar",
+                                component: CoordinadorAssignTecnicoComponent
+                            }
+                        ]
                     }
                 ]
             }
