@@ -25,7 +25,7 @@ export class AuthLoginComponent implements OnInit {
 
     user: User;
 
-    roles: String[];
+    roles: string[];
 
     /**
     * Logs the user in with the selected role

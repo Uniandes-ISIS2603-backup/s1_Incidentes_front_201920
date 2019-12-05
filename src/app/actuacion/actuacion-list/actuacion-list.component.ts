@@ -21,7 +21,7 @@ export class ActuacionListComponent implements OnInit {
   getActuaciones(): void {
     console.log("getActuaciones on init");
     this.actuacionService.getActuaciones().subscribe(actuaciones => {
-      actuaciones.map((actuacion: Actuacion)=>{
+      actuaciones.forEach((actuacion: Actuacion)=>{
         actuacion.fechaHora = actuacion.fechaHora.slice(0,-5);
         this.actuaciones.push(actuacion);
       })

@@ -8,12 +8,13 @@ import { CoordinadorCreateComponent } from './coordinador-create/coordinador-cre
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoordinadorTecnicosComponent } from './coordinador-tecnicos/coordinador-tecnicos.component';
 import { CoordinadorIncidentesComponent } from './coordinador-incidentes/coordinador-incidentes.component';
+import { CoordinadorAssignTecnicoComponent } from './coordinador-assign-tecnico/coordinador-assign-tecnico.component';
 
 @NgModule({
   imports: [
     CommonModule, AppRoutingModule, ReactiveFormsModule,
   ],
-  declarations: [CoordinadorListComponent, CoordinadorDetailListComponent, CoordinadorCreateComponent, CoordinadorTecnicosComponent, CoordinadorIncidentesComponent,
+  declarations: [CoordinadorListComponent, CoordinadorDetailListComponent, CoordinadorCreateComponent, CoordinadorTecnicosComponent, CoordinadorIncidentesComponent, CoordinadorAssignTecnicoComponent,
   ],
   exports : [CoordinadorListComponent, CoordinadorDetailListComponent, CoordinadorCreateComponent],
   providers: [CoordinadorService]
