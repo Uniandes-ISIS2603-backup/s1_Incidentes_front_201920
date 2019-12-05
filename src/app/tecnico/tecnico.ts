@@ -4,4 +4,5 @@ export class Tecnico {
   password:string;
   numCasos:number;
   especialidad:string; 
+  coordinador: number;
 }
