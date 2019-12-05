@@ -10,7 +10,8 @@ import { environment } from "../../environments/environment";
 @Injectable({ providedIn: "root"})
 export class ActuacionService {
 
-  private actuacionUrl = `${environment.apiURL}/incidentes/1000000/actuacion`;
+  private actuacionUrl = `${environment.apiURL}/incidentes/`
+  private actuacionUrl2 = `/actuacion`;
   //Este recurso es dependiente de incidente
   //Para poder realizar las actividades, me fue necesario referenciar al incidente
   //Con id 0 como si este existiera
@@ -21,8 +22,8 @@ export class ActuacionService {
 
   constructor(private http: HttpClient) {}
 
-  getActuaciones(): Observable<Actuacion[]> {
-    return this.http.get<Actuacion[]>(this.actuacionUrl);
+  getActuaciones(idIncidente:number): Observable<Actuacion[]> {
+    return this.http.get<Actuacion[]>(this.actuacionUrl + idIncidente + this.actuacionUrl2);
   }
 
   getActuacion(id:number):Observable<Actuacion> {
@@ -31,8 +32,9 @@ export class ActuacionService {
   }
 
   createActuacion(actuacion: Actuacion): Observable<Actuacion> {
-    return this.http.post<Actuacion>(this.actuacionUrl, actuacion, this.httpOptions).pipe(tap((actuacion:Actuacion) =>
-      console.log(`added actuacion w/ ${actuacion.descripcion} , ${actuacion.fechaHora} id = ${actuacion.id}`)));
+    return this.http.post<Actuacion>(this.actuacionUrl + actuacion.incidente.id + this.actuacionUrl2, 
+      actuacion, this.httpOptions).pipe(tap((actuacion:Actuacion) =>
+      console.log(`added actuacion w/ ${actuacion.descripcion} , ${actuacion.fechaHora} id = ${actuacion.id} incidente = ${actuacion.incidente}`)));
   }
 
   deleteActuacion(actuacion:Actuacion | number): Observable<Actuacion> {

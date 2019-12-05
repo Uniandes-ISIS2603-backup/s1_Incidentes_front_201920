@@ -33,7 +33,6 @@ import { HomeComponent } from './home/home.component';
         TecnicoModule,
         IncidenteModule,
         EmpleadoModule,
-        ActuacionModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,

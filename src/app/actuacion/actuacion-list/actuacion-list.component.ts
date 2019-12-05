@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Actuacion } from '../actuacion';
 import { ActuacionService } from '../actuacion.service';
 import { DatePipe } from '@angular/common';
+import { Incidente } from '../../incidente/incidente';
 
 @Component({
   selector: 'app-actuacion-list',
@@ -11,6 +12,7 @@ import { DatePipe } from '@angular/common';
 export class ActuacionListComponent implements OnInit {
 
   actuaciones: Actuacion[] = [];
+  @Input() incidente : Incidente
 
   constructor(private actuacionService: ActuacionService) { }
 
@@ -20,7 +22,7 @@ export class ActuacionListComponent implements OnInit {
 
   getActuaciones(): void {
     console.log("getActuaciones on init");
-    this.actuacionService.getActuaciones().subscribe(actuaciones => {
+    this.actuacionService.getActuaciones(this.incidente.id).subscribe(actuaciones => {
       actuaciones.forEach((actuacion: Actuacion)=>{
         actuacion.fechaHora = actuacion.fechaHora.slice(0,-5);
         this.actuaciones.push(actuacion);

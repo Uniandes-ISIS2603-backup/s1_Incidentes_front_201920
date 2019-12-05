@@ -1,3 +1,35 @@
-<p>
-  coordinador-assign-tecnico works!
-</p>
+
+<div class="container-fluid">
+  <select class="mdb-select md-form colorful-select dropdown-primary" [formControl]="prioridad">
+    <option value="1">Baja</option>
+    <option value="2">Media</option>
+    <option value="3">Alta</option>
+  </select>
+  <label class="mdb-main-label">Prioridad</label>
+
+
+  <table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th> Tecnico </th>
+        <th scope="col">Especialidad</th>
+        <th scope="col">Casos Asignados</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let t of tecnicos">
+        <td>
+          <input type="radio" value="{{t.id}}" [formControl]="idTecnico">
+        </td>
+        <td>{{t.id}}
+        </td>
+        <td>{{t.especialidad}}</td>
+        <td>{{t.numCasos}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button" class="btn-primary" (click)="guardar()">Guardar</button>
+</div>

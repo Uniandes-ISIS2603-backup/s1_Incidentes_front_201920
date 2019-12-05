@@ -25,6 +25,7 @@ import { TecnicoDetailListComponent } from '../tecnico/tecnico-detail-list/tecni
 import { TecnicoIncidentesComponent } from '../tecnico/tecnico-incidentes/tecnico-incidentes.component';
 import { HomeComponent } from '../home/home.component';
 import { TecnicoCreateComponent } from '../tecnico/tecnico-create/tecnico-create.component';
+import { CoordinadorAssignTecnicoComponent } from '../coordinador/coordinador-assign-tecnico/coordinador-assign-tecnico.component';
 
 const routes: Routes = [
 
@@ -70,7 +71,13 @@ const routes: Routes = [
                     },
                     {
                         path: "incidentes",
-                        component: CoordinadorIncidentesComponent
+                        component: CoordinadorIncidentesComponent,
+                        children: [
+                            {
+                                path: "asignar",
+                                component: CoordinadorAssignTecnicoComponent
+                            }
+                        ]
                     }
                 ]
             }
@@ -85,7 +92,16 @@ const routes: Routes = [
                 children: [
                     {
                         path: "actuaciones",
-                        component: IncidenteDetailListComponent
+                        children: [
+                            {
+                                path: 'list',
+                                component: ActuacionListComponent
+                            },
+                            {
+                                path: "create",
+                                component: ActuacionCreateComponent
+                            }
+                        ]
                     }
                 ]
             }

@@ -36,6 +36,10 @@ export class IncidenteService {
    createIncidente(incidente: Incidente): Observable<Incidente> {
     return this.http.post<Incidente>(API_URL+ "/incidentes", incidente).pipe(filter(n=> n.id!=null));
   }
+
+  updateIncidente(incidente: IncidenteDetail): Observable<Incidente>{
+    return this.http.put<IncidenteDetail>(API_URL + "/incidentes/" + incidente.id, incidente );
+  }
   
   asignarIncidenteaEmpleado(idIncidente:number, idEmpleado:number):Observable<Empleado>{
     return this.http.post<Empleado>(API_URL+ "/empleado/" + idEmpleado + "/incidentes/"+ idIncidente, null)
