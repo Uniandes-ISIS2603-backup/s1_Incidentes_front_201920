@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActuacionService } from '../actuacion.service';
 import { Actuacion } from '../actuacion';
 import { ToastrService } from "ngx-toastr";
+import { Incidente } from '../../incidente/incidente';
 
 @Component({
   selector: 'app-actuacion-create',
@@ -13,6 +14,8 @@ export class ActuacionCreateComponent implements OnInit {
 
   actuaciones:Actuacion[];
   actuacionForm:FormGroup;
+
+  @Input() incidente: Incidente
 
   constructor(
     private actuacionService: ActuacionService,
@@ -27,6 +30,7 @@ export class ActuacionCreateComponent implements OnInit {
   createActuacion(newActuacion: Actuacion) {
     console.warn("la actuación fue creada", newActuacion);
     newActuacion.fechaHora = new Date().toISOString();
+    newActuacion.incidente = this.incidente;
     this.actuacionService.createActuacion(newActuacion).subscribe(actuacion => {
       this.actuaciones.push(actuacion);
     });
@@ -44,7 +48,7 @@ export class ActuacionCreateComponent implements OnInit {
 
   ngOnInit() {
     this.actuacionService
-      .getActuaciones()
+      .getActuaciones(this.incidente.id)
       .subscribe(actuaciones => (this.actuaciones = actuaciones));
   }
 

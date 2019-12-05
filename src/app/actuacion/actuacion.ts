@@ -4,4 +4,5 @@ export class Actuacion {
     id:number;
     fechaHora:any;
     descripcion:string;
+    incidente:Incidente;
 }

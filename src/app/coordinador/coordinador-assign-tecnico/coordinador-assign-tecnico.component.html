@@ -1,5 +1,5 @@
 
-<div class="container-fluid"></div>
+<div class="container-fluid">
   <select class="mdb-select md-form colorful-select dropdown-primary" [formControl]="prioridad">
     <option value="1">Baja</option>
     <option value="2">Media</option>
@@ -22,7 +22,7 @@
         <td>
           <input type="radio" value="{{t.id}}" [formControl]="idTecnico">
         </td>
-        <td>{{t.id}}</a>
+        <td>{{t.id}}
         </td>
         <td>{{t.especialidad}}</td>
         <td>{{t.numCasos}}</td>
@@ -32,4 +32,4 @@
   </table>
 
   <button type="button" class="btn-primary" (click)="guardar()">Guardar</button>
-</div
+</div>

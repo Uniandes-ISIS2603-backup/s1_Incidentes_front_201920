@@ -38,7 +38,7 @@ export class CoordinadorAssignTecnicoComponent implements OnInit {
 
   showSuccess() {
     console.log(this.incidente.id + ":" + this.incidente.prioridad + "," + this.incidente.tecnico);
-    this.toastr.success("Actuación", "Creada exitosamente!", {"progressBar": true,timeOut:4000});
+    this.toastr.success("Incidente", "Modificado exitosamente!", {"progressBar": true,timeOut:4000});
    
   }
 }
