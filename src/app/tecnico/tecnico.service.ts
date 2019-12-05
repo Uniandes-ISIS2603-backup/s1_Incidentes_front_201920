@@ -28,4 +28,9 @@ export class TecnicoService {
     return this.http.get<TecnicoDetail>(API_URL + "/tecnico/" + tecnicoId );
   }
 
+  /** POST: add a new client to the server */
+  createTecnico(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.post<Tecnico>(API_URL+ "/tecnico", tecnico).pipe(
+      tap((tecnico: Tecnico) => console.log(`added tecnico w/ ${tecnico.username} id=${tecnico.id}`)));
+  }
 }
