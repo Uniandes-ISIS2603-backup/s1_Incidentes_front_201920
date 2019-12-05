@@ -24,7 +24,7 @@ export class TecnicoCerrarComponent implements OnInit {
   ngOnInit() {
     console.log(this.incidente.id);
     console.log(this.incidente.solucionado);
-    if(this.incidente.solucionado=='false'){
+    if("false".localeCompare(this.incidente.solucionado)==0){
       this.mostrar=true;
     } else {
       this.mostrar=false;
@@ -35,7 +35,7 @@ export class TecnicoCerrarComponent implements OnInit {
     if(this.mostrar==true){
       this.incidente.solucionado='true';
       this.servcie.updateIncidente(this.incidente).subscribe(() => {
-        this.router.navigate(['/tecnico/']);
+        this.router.navigate(['/tecnico/list']);
         this.toastrService.success("The incidente was successfully cerrado", 'Incidente cerrado');
     });
     this.mostrar=false;

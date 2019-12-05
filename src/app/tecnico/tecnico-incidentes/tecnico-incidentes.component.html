@@ -10,6 +10,7 @@
             <th scope="col">Calificacion</th>
             <th scope="col">Equipo</th>
             <th scope="col">Reabierto</th>
+            <th scope="col">Solucionado</th>
             <th scope="col">Cerrar</th>
           </tr>
         </thead>
@@ -23,6 +24,7 @@
             <td>{{i.calificacion}}</td>
             <td>{{i.equipo}}</td>
             <td>{{i.reabrir}}</td>
+            <td>{{i.solucionado}}</td>
             <td><app-tecnico-cerrar [incidente]="i"></app-tecnico-cerrar></td>
           </tr>
         </tbody>
