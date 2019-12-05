@@ -5,6 +5,12 @@ import { IncidenteDetail } from "./incidente-detail";
 import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
 import { environment } from "../../environments/environment";
+import { Empleado } from "../empleado/empleado";
+
+import { pipe } from 'rxjs'; 
+
+import { mergeMap, switchMap, retry, 
+  map, catchError, filter, scan } from 'rxjs/operators';
 
 const API_URL = environment.apiURL;
 
@@ -28,7 +34,16 @@ export class IncidenteService {
   }
    /** POST: add a new client to the server */
    createIncidente(incidente: Incidente): Observable<Incidente> {
-    return this.http.post<Incidente>(API_URL+ "/incidentes", incidente).pipe(
-      tap((incidente: Incidente) => console.log(`added incidente w/ ${incidente.descripcion} id=${incidente.observaciones}`)));
+    return this.http.post<Incidente>(API_URL+ "/incidentes", incidente).pipe(filter(n=> n.id!=null));
   }
+  
+  asignarIncidenteaEmpleado(idIncidente:number, idEmpleado:number):Observable<Empleado>{
+    return this.http.post<Empleado>(API_URL+ "/empleado/" + idEmpleado + "/incidentes/"+ idIncidente, null)
+  }
+
+  asignarIncidenteaCoordinador(idIncidente:number, idCoordinador:number):Observable<Empleado>{
+    return this.http.post<Empleado>(API_URL+ "/coordinador/" + idCoordinador + "/incidentes/"+ idIncidente, null)
+  }
+
+
 }
