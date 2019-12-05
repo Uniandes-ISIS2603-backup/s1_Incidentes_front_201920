@@ -1,0 +1,6 @@
+<div *ngIf="mostrar">
+<button (click)="show = !show">Calificar servicio</button>
+</div>
+<div *ngIf="show">
+  <input #box (keyup.enter)="onEnter(box.value)">
+</div>

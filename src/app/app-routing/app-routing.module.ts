@@ -13,6 +13,7 @@ import { IncidenteListComponent } from '../incidente/incidente-list/incidente-li
 import { CoordinadorTecnicosComponent } from '../coordinador/coordinador-tecnicos/coordinador-tecnicos.component';
 import { CoordinadorIncidentesComponent } from '../coordinador/coordinador-incidentes/coordinador-incidentes.component';
 import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
+
 import { IncidenteDetailListComponent } from '../incidente/incidente-detail-list/incidente-detail-list.component';
 import { IncidenteCreateComponent } from '../incidente/incidente-create/incidente-create.component';
 import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-detail.component';
@@ -94,10 +95,7 @@ const routes: Routes = [
         path: 'incidentes',
         component: IncidenteListComponent,
         children: [
-            {
-                path: "create",
-                component: IncidenteCreateComponent
-            }
+            
         ]
     },
     {
@@ -107,6 +105,12 @@ const routes: Routes = [
             {
                 path: "create",
                 component: EmpleadoCreateComponent
+            },
+            {
+                path: ":id",
+                component: EmpleadoDetailComponent,
+                
+                
             }
         ]
     },
@@ -129,6 +133,12 @@ const routes: Routes = [
             {
                 path: ":id",
                 component: EmpleadoDetailComponent,
+                children: [
+                    {
+                        path: "incidente",
+                        component: IncidenteCreateComponent
+                    }
+                ]
             }
         ]
     },

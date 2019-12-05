@@ -12,17 +12,18 @@ import { TecnicoService } from '../tecnico.service';
 export class TecnicoCreateComponent implements OnInit {
 
   tecnicoForm: FormGroup;
-  TecnicoService: TecnicoService;
   tecnicos: Tecnico[];
 
   constructor(
+    private TecnicoService: TecnicoService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService
   ) {
     this.tecnicoForm = this.formBuilder.group({
       nombre: ["", [Validators.required, Validators.minLength(2)]],
       username: ["", [Validators.required, Validators.minLength(2)]],
-      password: ["", [Validators.required, Validators.minLength(2)]]
+      password: ["", [Validators.required, Validators.minLength(2)]],
+      especialidad: ["", [Validators.required, Validators.minLength(2)]]
     });
   }
   createTecnico(newTecnico: Tecnico) {

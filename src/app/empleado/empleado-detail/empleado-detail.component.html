@@ -16,7 +16,7 @@
 							<li>
 								Nombre de usuario: {{empleadoDetail.username}}
               </li>
-              <a href="/incidentes/create" class="btn btn-success">Crear Incidente</a>
+              <a href="/empleado/{{empleadoDetail.id}}/incidente" class="btn btn-success">Crear Incidente</a>
 						</p>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
                 <th scope="col">Categoria</th>            
                 <th scope="col">Prioridad</th>
                 <th scope="col">Equipo</th>
-                <th scope="col">Reabierto</th>
+                <th scope="col">Confirmar cierre</th>
               </tr>
             </thead>
             <tbody>
@@ -44,14 +44,14 @@
                   <td>{{i.categoria}}</td>
                   <td>{{i.prioridad}}</td>
                   <td>{{i.equipo}}</td>
-                  <td>{{i.reabrir}}</td>
-                  
+                  <td><app-empleado-calificar [incidente]="i" [idEmpleado]="empleado_id"></app-empleado-calificar><app-empleado-reabrir [incidente]="i" [idEmpleado]="empleado_id"></app-empleado-reabrir></td>
         
                 </tr>
         
               </tbody>
             
           </table>
+          <router-outlet></router-outlet>
         </div>
       </div>
 		</div>
