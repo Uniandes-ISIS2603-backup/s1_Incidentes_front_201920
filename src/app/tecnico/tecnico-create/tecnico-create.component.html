@@ -1,4 +1,4 @@
-<form [formGroup]="tecnicoForm" (ngSubmit)="createCoordinador(tecnicoForm.value)">
+<form [formGroup]="tecnicoForm" (ngSubmit)="createTecnico(tecnicoForm.value)">
 
   <div class="form-group mx-sm-3 mb-2">
     <label for="nombre">
@@ -40,7 +40,7 @@
     <input id="especialidad" type="text" class="form-control" formControlName="especialidad"
       placeholder=" especialidad">
     <div class="alert alert-danger alert-dismissible fade show" *ngIf="tecnicoForm.get('password').hasError('required') && 
-        tecnicoForm.get('password').touched">
+        tecnicoForm.get('especialidad').touched">
       especialidad required
     </div>
   </div>
