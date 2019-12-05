@@ -1,3 +1,24 @@
 <p>
   tecnico-list works!
 </p>
+
+<router-outlet></router-outlet>
+
+<div class="row card-columns">
+	<div *ngFor="let t of tecnicos" class="card border-dark mb-3 ml-4 mt-4" style="max-width: 15rem;">
+		<div class="card-header"> Tecnico {{t.id}}</div>
+		<img src="https://cdn0.iconfinder.com/data/icons/users-android-l-lollipop-icon-pack/24/user-512.png"
+			class="card-img-top" alt="..." width="200" height="220">
+		<div class="card-body text-dark">
+			<h5 class="card-title">{{t.username}}</h5>
+			<p class="card-text">Contraseña: {{t.password}} <br>
+                           Casos: {{t.numCasos}} <br>
+                           Especialidad: {{t.especialidad}}
+			</p>
+		</div>
+		<div class="card-footer border-success">
+			<a href="/tecnico/{{t.id}}" class="btn btn-primary">Ver Tecnico</a>
+		</div>
+
+	</div>
+</div>
